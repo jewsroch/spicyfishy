@@ -1,0 +1,141 @@
+#: widget/form.php:3
+msgid "Title"
+msgstr ""
+
+#: widget/form.php:8
+msgid "Display to"
+msgstr ""
+
+#: widget/form.php:21
+msgid "Main Settings"
+msgstr ""
+
+#: widget/form.php:23
+msgid "Post Type"
+msgstr ""
+
+#: widget/form.php:27
+msgid "Display Method"
+msgstr ""
+
+#: widget/form.php:31
+msgid "Results Sorting"
+msgstr ""
+
+#: widget/form.php:33
+msgid "Sort By"
+msgstr ""
+
+#: widget/form.php:36
+msgid "Order"
+msgstr ""
+
+#: widget/form.php:44
+msgid "Standard Settings"
+msgstr ""
+
+#: widget/form.php:48
+msgid "Automatic title based on settings."
+msgstr ""
+
+#: widget/form.php:53
+msgid "Display Items Hierarchy."
+msgstr ""
+
+#: widget/form.php:56
+msgid "Hierarchy Depth"
+msgstr ""
+
+#: widget/form.php:59
+msgid "Leave 0 to show any hierarchy depth"
+msgstr ""
+
+#: widget/form.php:62
+msgid "Pages to Exclude"
+msgstr ""
+
+#: widget/form.php:77
+#: widget/form.php:85
+#: widget/form.php:96
+msgid "Method"
+msgstr ""
+
+#: widget/form.php:77
+#: widget/load.php:79
+msgid "Custom Parent"
+msgstr ""
+
+#: widget/form.php:79
+msgid "Root Page"
+msgstr ""
+
+#: widget/form.php:85
+#: widget/load.php:80
+msgid "Navigate"
+msgstr ""
+
+#: widget/form.php:89
+msgid "Include level ip item if needed."
+msgstr ""
+
+#: widget/form.php:96
+#: widget/load.php:81
+msgid "Selection"
+msgstr ""
+
+#: widget/form.php:103
+msgid "Only selected pages will be displayed."
+msgstr ""
+
+#: widget/form.php:9
+msgid "Everyone"
+msgstr ""
+
+#: widget/form.php:9
+msgid "Only Users"
+msgstr ""
+
+#: widget/form.php:9
+msgid "Only Visitors"
+msgstr ""
+
+#: widget/load.php:54
+msgid "Enhanced pages navigation."
+msgstr ""
+
+#: widget/load.php:78
+msgid "Full List"
+msgstr ""
+
+#: widget/load.php:87
+msgid "Ascending"
+msgstr ""
+
+#: widget/load.php:88
+msgid "Descending"
+msgstr ""
+
+#: widget/load.php:94
+msgid "Menu Order"
+msgstr ""
+
+#: widget/load.php:95
+msgid "Page Title"
+msgstr ""
+
+#: widget/load.php:96
+msgid "Page Slug"
+msgstr ""
+
+#: widget/load.php:97
+msgid "Page ID"
+msgstr ""
+
+#: widget/load.php:98
+msgid "Creation Date"
+msgstr ""
+
+#: widget/load.php:99
+msgid "Modification Date"
+msgstr ""
+

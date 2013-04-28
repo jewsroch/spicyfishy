@@ -1,0 +1,20 @@
+#adminmenu li#comments-no-reply-container {
+    position: absolute;
+}
+
+#adminmenu li a #awaiting-mod.comments-no-reply {
+    background-image:url(images/comment-stalk-remix.png);
+    background-position:24% bottom;
+}
+
+#adminmenu li a:hover #awaiting-mod.comments-no-reply {
+    background-position:50% bottom;
+}
+
+#adminmenu li #awaiting-mod.comments-no-reply {
+    color:#FFFFFF;
+}
+
+#adminmenu li #awaiting-mod.comments-no-reply span {
+    background-color: #FF0000;
+}

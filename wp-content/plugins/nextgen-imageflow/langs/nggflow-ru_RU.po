@@ -1,0 +1,377 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: NextGEN ImageFlow 1.2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-12-31 14:38+1000\n"
+"PO-Revision-Date: 2009-03-25 17:54+0200\n"
+"Last-Translator: Nikolay Ivanets <nikolay@ivanets.kiev.ua>\n"
+"Language-Team: Nikolay Ivanets <nikolay@ivanets.kiev.ua>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-KeywordsList: _e;__\n"
+"X-Poedit-Language: Russian\n"
+"X-Poedit-Country: UKRAINE\n"
+"X-Poedit-SourceCharset: iso-8859-1\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: nggimageflow.php:31
+msgid "You are not allowed to call this page directly."
+msgstr "Эту страницу нельзя открывать непосредственно."
+
+#: admin/admin.php:31
+msgid "Sorry, NextGEN ImageFlow works only in combination with NextGEN Gallery."
+msgstr "Простите, но NextGEN ImageFlow работает только совместно с NextGEN Gallery."
+
+#: admin/admin.php:39
+msgid "ImageFlow"
+msgstr "ImageFlow"
+
+#: admin/admin.php:69
+msgid "<a href=\"http://travel-junkie.com/geeky-stuff/wp-plugin-nextgen-imageflow/\" target=\"_blank\">Support</a>"
+msgstr "<a href=\"http://travel-junkie.com/geeky-stuff/wp-plugin-nextgen-imageflow/\" target=\"_blank\">Поддержка</a>"
+
+#: admin/admin.php:74
+msgid "Get help with NextGEN ImageFlow"
+msgstr "Помощь в использовании NextGEN ImageFlow"
+
+#: admin/admin.php:78
+msgid "More Help & Info"
+msgstr "Больше помощи и информации"
+
+#: admin/admin.php:80
+msgid "<a href=\"http://wordpress.org/extend/plugins/nextgen-imageflow\" target=\"_blank\">Download a new version</a>"
+msgstr "<a href=\"http://wordpress.org/extend/plugins/nextgen-imageflow\" target=\"_blank\">Скачать новую версию</a>"
+
+#: admin/settings.php:32
+msgid "Update Successfully"
+msgstr "Обновление произошло успешно"
+
+#: admin/settings.php:43
+msgid "Reset all settings to default parameter"
+msgstr "Сбросить все настройки к настройкам по-умолчанию"
+
+#: admin/settings.php:52
+msgid "Uninstall sucessfull ! Now delete the plugin and enjoy your life ! Good luck !"
+msgstr "Удаление успешно! Теперь можете удалить плагин! Удачи!"
+
+#: admin/settings.php:73
+#: admin/settings.php:85
+msgid "General Settings"
+msgstr "Основные настройки"
+
+#: admin/settings.php:74
+msgid "Setup"
+msgstr "Установка/Удаление"
+
+#: admin/settings.php:75
+#: admin/settings.php:236
+msgid "Credits"
+msgstr "Благодарности"
+
+#: admin/settings.php:76
+#: admin/settings.php:243
+msgid "Donate"
+msgstr "Пожертвовать"
+
+#: admin/settings.php:88
+msgid "Absolute Path"
+msgstr "Абсолютный путь"
+
+#: admin/settings.php:89
+msgid "Absolute path to your WP installation."
+msgstr "Абсолютный путь к каталогу установки WP"
+
+#: admin/settings.php:89
+msgid "Initial value (NO trailing slash!):"
+msgstr "Начальное значение (БЕЗ последнего слеша!):"
+
+#: admin/settings.php:92
+msgid "Use the reflection?"
+msgstr "Использовать отражение"
+
+#: admin/settings.php:95
+#: admin/settings.php:104
+#: admin/settings.php:133
+#: admin/settings.php:165
+#: admin/settings.php:173
+#: admin/settings.php:181
+#: admin/settings.php:189
+#: admin/settings.php:201
+msgid "Yes"
+msgstr "Да"
+
+#: admin/settings.php:96
+#: admin/settings.php:103
+#: admin/settings.php:134
+#: admin/settings.php:166
+#: admin/settings.php:174
+#: admin/settings.php:182
+#: admin/settings.php:190
+#: admin/settings.php:202
+msgid "No"
+msgstr "Нет"
+
+#: admin/settings.php:97
+msgid "Sets whether to use the reflection or not."
+msgstr "Использовать ли отражение?"
+
+#: admin/settings.php:100
+msgid "Use a PNG as reflection"
+msgstr "Использовать PNG для отражения"
+
+#: admin/settings.php:105
+msgid "Switches from reflect2.php to reflect3.php for PNG transparency support."
+msgstr "Использовать reflect3.php вместо reflect2.php, чтобы добавить поддержку PNG-прозрачности."
+
+#: admin/settings.php:108
+msgid "Reflection Background Color"
+msgstr "Цвет фона отражения"
+
+#: admin/settings.php:110
+msgid "Background Color of reflection (hexidecimal color value e.g ff00ff)."
+msgstr "Цвет фона отражения (шестнадцатиричное значиние, папример, ff00ff)."
+
+#: admin/settings.php:113
+msgid "Reflection Height"
+msgstr "Высота отражения"
+
+#: admin/settings.php:114
+msgid "Sets the height of the reflection in percent of the source image."
+msgstr "Установите высоту отражения в процентах от высоты исходного изображения."
+
+#: admin/settings.php:117
+msgid "Javascript Effects"
+msgstr "Эффекты Javascript"
+
+#: admin/settings.php:120
+msgid "None"
+msgstr "Нет"
+
+#: admin/settings.php:121
+msgid "Highslide"
+msgstr "Highslide"
+
+#: admin/settings.php:122
+msgid "Lightbox"
+msgstr "Lightbox"
+
+#: admin/settings.php:123
+msgid "The effect to open up the focused image with."
+msgstr "Эффект, с которым будет открываться изображение."
+
+#: admin/settings.php:126
+msgid "Number of Images"
+msgstr "Кол-во изображений"
+
+#: admin/settings.php:127
+msgid "Sets the number of images on each side of the focused one."
+msgstr "Установите кол-во изображений по каждую сторону от выбранного."
+
+#: admin/settings.php:130
+msgid "Preload Images"
+msgstr "Предварительная загрузка изображений"
+
+#: admin/settings.php:135
+msgid "Disables / enables the loading bar and image preloading."
+msgstr "Отключить/включить предварительную загрузку изображений и прогресс-бар."
+
+#: admin/settings.php:138
+msgid "Image Focus"
+msgstr "Активное изображение"
+
+#: admin/settings.php:139
+msgid "Multiplicator for the focussed image size in percent (1.0 = 100%, 0 = 0%)."
+msgstr "Множитель для зума активного изображения в процентах (1.0 = 100%, 0 = 0%)."
+
+#: admin/settings.php:142
+msgid "Slider Width"
+msgstr "Ширина слайдера"
+
+#: admin/settings.php:143
+msgid "Sets the width of the slider div in px. Do not change unless you replace the slider image!"
+msgstr "Установите ширину элемента DIV слайдера в px. Не изменяйте это значение, если вы не меняли картинку слайдера!"
+
+#: admin/settings.php:146
+msgid "Step Width"
+msgstr "Ширина шага"
+
+#: admin/settings.php:147
+msgid "Step width on the x-axis in px"
+msgstr "Ширина шага оси Х в px"
+
+#: admin/settings.php:150
+msgid "Image Cursor Type"
+msgstr "Тип курсора для изображения"
+
+#: admin/settings.php:151
+msgid "Sets the cursor type for all images. Default is \"pointer\"."
+msgstr "Установить тип курсора для иображения. По-умолчанию это \"pointer\"."
+
+#: admin/settings.php:154
+msgid "Slider Cursor Type"
+msgstr "Тип курсора для слайдера"
+
+#: admin/settings.php:155
+msgid "Sets the slider cursor type. Default is \"e-resize\"."
+msgstr "Установить тип курсора для слайдера. По-умолчанию это  \"e-resize\"."
+
+#: admin/settings.php:158
+msgid "Slideshow Starting Point"
+msgstr "Стартовая точка анимации"
+
+#: admin/settings.php:159
+msgid "Sets which image the slideshow will start with."
+msgstr "Установите номер изображения, с которого начнется анимация"
+
+#: admin/settings.php:162
+msgid "Start Animation"
+msgstr "Начинать анимацию"
+
+#: admin/settings.php:167
+msgid "Animate images moving in from the right on startup"
+msgstr "Автоматически начинать анимацию справа при загрузке"
+
+#: admin/settings.php:170
+msgid "Scrollbar"
+msgstr "Полоса прокрутки"
+
+#: admin/settings.php:175
+msgid "Disables / enables the scrollbar"
+msgstr "Отключить/включить отображение полосы прокрутки"
+
+#: admin/settings.php:178
+msgid "Captions"
+msgstr "Заголовки"
+
+#: admin/settings.php:183
+msgid "Disables / enables captions"
+msgstr "Отключить/включить отображение заголовков"
+
+#: admin/settings.php:186
+msgid "Opacity"
+msgstr "Прозрачность"
+
+#: admin/settings.php:191
+msgid "Disables / enables image opacity"
+msgstr "Отключить/включить прозрачность изображений"
+
+#: admin/settings.php:194
+msgid "Image Opacity Range"
+msgstr "Шаг прозрачности"
+
+#: admin/settings.php:195
+msgid "Image opacity range - first value is for the focussed image (0 = 100% opacity, 10 = 0% opacity)"
+msgstr "Шаг прозрачности - первое значение для активного изображения (0 = 100% прозрачность, 10 = 0% прозрачность)."
+
+#: admin/settings.php:198
+msgid "Use the stylesheet?"
+msgstr "Использовать таблицу стилей"
+
+#: admin/settings.php:203
+msgid "Sets whether to use the stylesheet or not. Set to no if you want to copy the styles to your themes style.css."
+msgstr "Указывает, использовать ли таблицу стилей (CSS), или нет. Выберите \"нет\", если вы хотите скопировать стили в файл с таблицами стилей вашей темы."
+
+#: admin/settings.php:207
+msgid "Update"
+msgstr "Обновление"
+
+#: admin/settings.php:214
+msgid "Reset options"
+msgstr "Настройки сброса"
+
+#: admin/settings.php:217
+msgid "Reset all options/settings to the default installation."
+msgstr "Сбросить все настройки и опции к настройкам по-умолчанию."
+
+#: admin/settings.php:218
+msgid "Reset settings"
+msgstr "Сбросить настройки"
+
+#: admin/settings.php:218
+msgid ""
+"Reset all options to default settings ?\\n"
+"\\n"
+"Choose [Cancel] to Stop, [OK] to proceed.\\n"
+msgstr ""
+"Сбросит все настройки к настройкам по-умолчанию?\\n"
+"\\n"
+"Нажмите [Отмена], чтобы вернуться; [OK], чтобы продолжить.\\n"
+
+#: admin/settings.php:223
+msgid "Uninstall options from the database"
+msgstr "Опции удаления записей из базы данных"
+
+#: admin/settings.php:227
+msgid "You don't like NextGEN ImageFlow?"
+msgstr "Вам не нравиться NextGEN ImageFlow?"
+
+#: admin/settings.php:228
+msgid "No problem, before you deactivate this plugin press the Uninstall Button, because deactivating NextGEN ImageFlow does not remove any data that may have been created. "
+msgstr "Без проблем, перед тем как деактивировать плагин, нажмите кнопку Удалить, потому что простая деактивация плагина NextGEN ImageFlow не удаляет данные и настройки, которые могли быть созданы. "
+
+#: admin/settings.php:229
+msgid "Uninstall plugin"
+msgstr "Удалить плагин"
+
+#: admin/settings.php:229
+msgid ""
+"You are about to Uninstall this plugin from WordPress.\\n"
+"This action is not reversible.\\n"
+"\\n"
+"Choose [Cancel] to Stop, [OK] to Uninstall.\\n"
+msgstr ""
+"Вы собираетесь Удалить этотплагин WordPress.\\n"
+"Действие невозможно отменить.\\n"
+"\\n"
+"Нажмите [Отмена], чтобы вернуться; [OK] чтобы Удалить.\\n"
+
+#: admin/settings.php:237
+msgid "As always, when something has been created there are people to thank. This is that list:"
+msgstr "И как всегда, если что-либо было сделано, есть люди, которых стоит поблагодарить. Вот они:"
+
+#: admin/settings.php:238
+msgid "for the idea for this plugin"
+msgstr "за идею этого плагина"
+
+#: admin/settings.php:238
+msgid "for ImageFlow"
+msgstr "за ImageFlow"
+
+#: admin/settings.php:238
+msgid "for the great NextGEN Gallery"
+msgstr "за великолепную NextGEN Gallery"
+
+#: admin/settings.php:238
+msgid "for the Spanish language files"
+msgstr "за Испанский перевод"
+
+#: admin/settings.php:238
+msgid "for the Italian language files"
+msgstr "за Итальянский перевод"
+
+#: admin/settings.php:244
+msgid "We spend a lot of time and effort on implementing new features and on the maintenance of this plugin, so if you feel generous and have a few bucks to spare, then please consider to donate."
+msgstr "Мы потратили много времени и усилий, чтобы реализовать и поддерживать этот плагин. Если вам он действительно нравится, пожалуйста, сделайте небольшое пожертвование."
+
+#: admin/settings.php:245
+msgid "Click on the button below and you will be redirected to the PayPal site where you can make a safe donation"
+msgstr "Нажмите на кнопку ниже и вы будете перемещены на сайт PayPal, где вы сможете сделать пожертвование"
+
+#: admin/settings.php:249
+msgid "NextGEN ImageFlow Plugin @ http://shabushabu-webdesign.com"
+msgstr "NextGEN ImageFlow Plugin @ http://shabushabu-webdesign.com"
+
+#: admin/settings.php:256
+msgid "Make payments with PayPal - it's fast, free and secure!"
+msgstr "Сделать платеж через PayPal - это быстро, бесплатно и надежно!"
+
+#: admin/settings.php:259
+msgid "Thank you and all the best!"
+msgstr "Спасибо вам, вы лучшие!"
+
+#: lib/shortcodes.php:55
+msgid "[Gallery not found]"
+msgstr "[Галерея не найдена]"
+

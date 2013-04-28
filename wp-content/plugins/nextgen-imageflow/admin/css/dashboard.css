@@ -1,0 +1,7 @@
+.rss-widget .rbutton{
+	float:left;
+	margin:0 5px 5px;
+}
+.rss-widget ul,.rss-widget p{
+	clear:both;
+}

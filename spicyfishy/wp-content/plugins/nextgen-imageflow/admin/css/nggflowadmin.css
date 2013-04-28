@@ -1,0 +1,14 @@
+ul.help,ul.help li{
+	list-style-type:circle;
+	list-style-position:inside;
+	float:none;
+}
+.red{color:#FF0000;}
+.green{color:#00CC33;}
+.blue{color:#0033CC;}
+.orange{color:#FFCC00;}
+.purple{color:#9900CC;}
+.light{color:#00FFFF;}
+.dark{color:#009900;}
+.brown{color:#804000;}
+.antra{color: #408080;}

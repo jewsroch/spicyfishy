@@ -1,0 +1,452 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: NextGEN ImageFlow\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-03-01 20:51+1000\n"
+"PO-Revision-Date: 2009-03-01 20:56+1000\n"
+"Last-Translator: Boris Glumpler <bo@travel-junkie.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-KeywordsList: _e;__\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: nggimageflow.php:28
+#: lib/replace.php:1
+msgid "You are not allowed to call this page directly."
+msgstr "Du darfst diese Seite nicht direkt aufrufen."
+
+#: admin/admin.php:30
+msgid "Sorry, NextGEN ImageFlow works only in combination with NextGEN Gallery."
+msgstr "Leider funktioniert NextGEN ImageFlow nur in Kombination mit NextGEN Gallery."
+
+#: admin/admin.php:38
+msgid "ImageFlow"
+msgstr "ImageFlow"
+
+#: admin/admin.php:52
+msgid "A new version of NextGEN ImageFlow is available !"
+msgstr "Es gibt eine neue Version von NextGEN ImageFlow!"
+
+#: admin/admin.php:52
+msgid "Download here"
+msgstr "Hier herunterladen"
+
+#: admin/admin.php:55
+msgid "There was a problem moving reflect2.php into the root, so you should do that manually!"
+msgstr "Es gab ein Problem beim Kopieren von reflect2.php in den Root, also solltest Du das jetzt manuell machen!"
+
+#: admin/admin.php:58
+msgid "There was a problem moving reflect3.php into the root, so you should do that manually!"
+msgstr "Es gab ein Problem beim Kopieren von reflect3.php in den Root, also solltest Du das jetzt manuell machen!"
+
+#: admin/admin.php:93
+msgid "Get help with NextGEN ImageFlow"
+msgstr "Hol Dir Hilfe zu NextGEN ImageFlow"
+
+#: admin/admin.php:95
+msgid "<a href=\"http://shabushabu-webdesign.com/wp-plugin-nextgen-imageflow/\" target=\"_blank\">Support</a>"
+msgstr "<a href=\"http://shabushabu-webdesign.com/wp-plugin-nextgen-imageflow/\" target=\"_blank\">Unterst&uuml;tzung</a>"
+
+#: admin/admin.php:97
+msgid "More Help & Info"
+msgstr "Mehr Hilfe & Info"
+
+#: admin/admin.php:99
+msgid "<a href=\"http://wordpress.org/extend/plugins/nextgen-imageflow\" target=\"_blank\">Download a new version</a>"
+msgstr "<a href=\"http://wordpress.org/extend/plugins/nextgen-imageflow\" target=\"_blank\">Lade eine neue Version herunter</a>"
+
+#: admin/settings.php:26
+msgid "Update Successfully"
+msgstr "Update erfolgreich"
+
+#: admin/settings.php:37
+msgid "Reset all settings to default parameter"
+msgstr ""
+
+#: admin/settings.php:46
+msgid "Uninstall sucessfull ! Now delete the plugin and enjoy your life ! Good luck !"
+msgstr ""
+
+#: admin/settings.php:67
+#: admin/settings.php:79
+msgid "General Settings"
+msgstr "Allgemeine Einstellungen"
+
+#: admin/settings.php:68
+msgid "Setup"
+msgstr "Setup"
+
+#: admin/settings.php:69
+msgid "Help"
+msgstr "Hilfe"
+
+#: admin/settings.php:70
+#: admin/settings.php:269
+msgid "Credits"
+msgstr "Credits"
+
+#: admin/settings.php:71
+#: admin/settings.php:276
+msgid "Donate"
+msgstr "Spenden"
+
+#: admin/settings.php:82
+msgid "Use the reflection?"
+msgstr "Die Spiegelung verwenden?"
+
+#: admin/settings.php:85
+#: admin/settings.php:94
+#: admin/settings.php:123
+#: admin/settings.php:155
+#: admin/settings.php:163
+#: admin/settings.php:171
+#: admin/settings.php:179
+#: admin/settings.php:191
+#: admin/settings.php:199
+msgid "Yes"
+msgstr "Ja"
+
+#: admin/settings.php:86
+#: admin/settings.php:93
+#: admin/settings.php:124
+#: admin/settings.php:156
+#: admin/settings.php:164
+#: admin/settings.php:172
+#: admin/settings.php:180
+#: admin/settings.php:192
+#: admin/settings.php:200
+msgid "No"
+msgstr "Nein"
+
+#: admin/settings.php:87
+msgid "Sets whether to use the reflection or not."
+msgstr "Legt fest, ob die Spiegelung verwendt werden soll."
+
+#: admin/settings.php:90
+msgid "Use a PNG as reflection"
+msgstr "PNG als Spiegelung verwenden"
+
+#: admin/settings.php:95
+msgid "Switches from reflect2.php to reflect3.php for PNG transparency support."
+msgstr "Wechselt von reflect2.php zu reflect3.php f&uuml;r PNG Transparenz."
+
+#: admin/settings.php:98
+msgid "Reflection Background Color"
+msgstr "Spiegelung Hintergrundfarbe"
+
+#: admin/settings.php:100
+msgid "Background Color of reflection (hexidecimal color value e.g ff00ff)."
+msgstr "Hintergrundfarbe der Spiegelung (Hexadezimaler Farbenwert, z.B. ff00ff)."
+
+#: admin/settings.php:103
+msgid "Reflection Height"
+msgstr "H&ouml;he der Spiegelung"
+
+#: admin/settings.php:104
+msgid "Sets the height of the reflection in percent of the source image."
+msgstr "Legt die Gr&ouml;sse der Spiegelung prozentual zum Quellbild fest."
+
+#: admin/settings.php:107
+msgid "Javascript Effects"
+msgstr "Javascript Effekte"
+
+#: admin/settings.php:110
+msgid "None"
+msgstr "Keinen"
+
+#: admin/settings.php:111
+msgid "Highslide"
+msgstr "Highslide"
+
+#: admin/settings.php:112
+msgid "Lightbox"
+msgstr "Lightbox"
+
+#: admin/settings.php:113
+msgid "The effect to open up the focused image with."
+msgstr "Der Effekt, mit dem das mittlere Bild ge&ouml;ffnet wird."
+
+#: admin/settings.php:116
+msgid "Number of Images"
+msgstr "Anzahl der Bilder"
+
+#: admin/settings.php:117
+msgid "Sets the number of images on each side of the focused one."
+msgstr "Legt die Anzahl der Bilder zu jeder Seite des mittleren Bildes fest."
+
+#: admin/settings.php:120
+msgid "Preload Images"
+msgstr "Bilder vorladen"
+
+#: admin/settings.php:125
+msgid "Disables / enables the loading bar and image preloading."
+msgstr "Schaltet die Ladeanzeige und das Vorladen von Bildern ein/aus."
+
+#: admin/settings.php:128
+msgid "Image Focus"
+msgstr "Bild Fokus"
+
+#: admin/settings.php:129
+msgid "Multiplicator for the focussed image size in percent (1.0 = 100%, 0 = 0%)."
+msgstr "Multiplikator f&uuml;r das Bild in Fokus in Prozent  (1.0 = 100%, 0 = 0%)."
+
+#: admin/settings.php:132
+msgid "Slider Width"
+msgstr "Weite des Sliders"
+
+#: admin/settings.php:133
+msgid "Sets the width of the slider div in px. Do not change unless you replace the slider image!"
+msgstr "Legt die Breite des Slider Divs fest in Px. Bitte nicht &auml;ndern, ausser es wird das Slider Bild ge&auml;ndert."
+
+#: admin/settings.php:136
+msgid "Step Width"
+msgstr "Stufenbreite"
+
+#: admin/settings.php:137
+msgid "Step width on the x-axis in px"
+msgstr "Stufenbreite auf der X-Achse in px"
+
+#: admin/settings.php:140
+msgid "Image Cursor Type"
+msgstr "Cursor f&uuml;r Bilder"
+
+#: admin/settings.php:141
+msgid "Sets the cursor type for all images. Default is \"pointer\"."
+msgstr "Legt den Cursor f&uuml;r alle Bilder fest. Vorgabewert ist \"pointer\"."
+
+#: admin/settings.php:144
+msgid "Slider Cursor Type"
+msgstr "Cursor des Sliders"
+
+#: admin/settings.php:145
+msgid "Sets the slider cursor type. Default is \"e-resize\"."
+msgstr "Legt den Cursor f&uuml;r den Slider fest. Vorgabewert ist \"e-resize\"."
+
+#: admin/settings.php:148
+msgid "Slideshow Starting Point"
+msgstr "Startpunkt Diashow"
+
+#: admin/settings.php:149
+msgid "Sets which image the slideshow will start with."
+msgstr "Legt fest mit welchem Bild die Diashow anf&auml;ngt."
+
+#: admin/settings.php:152
+msgid "Start Animation"
+msgstr "Animation starten"
+
+#: admin/settings.php:157
+msgid "Animate images moving in from the right on startup"
+msgstr "Animiert die Bilder von rechts nach links beim Startup"
+
+#: admin/settings.php:160
+msgid "Scrollbar"
+msgstr "Scrollbar"
+
+#: admin/settings.php:165
+msgid "Disables / enables the scrollbar"
+msgstr "Schaltet die Scrollbar ein / aus"
+
+#: admin/settings.php:168
+msgid "Captions"
+msgstr "Titel"
+
+#: admin/settings.php:173
+msgid "Disables / enables captions"
+msgstr "Schaltet Titel ein /aus"
+
+#: admin/settings.php:176
+msgid "Opacity"
+msgstr "Durchsichtigkeit"
+
+#: admin/settings.php:181
+msgid "Disables / enables image opacity"
+msgstr "Schaltet Bilddurchsichtigkeit ein /aus"
+
+#: admin/settings.php:184
+msgid "Image Opacity Range"
+msgstr "Durchsichtigkeitsweite"
+
+#: admin/settings.php:185
+#, php-format
+msgid "Image opacity range - first value is for the focussed image (0 = 100% opacity, 10 = 0% opacity)"
+msgstr "Bild Dursichtbarkeit - Erster Wert ist f&uuml;r das fokussierte Bild (0 = 100% Dursichtbarkeit, 10 = 0% Dursichtbarkeit)"
+
+#: admin/settings.php:188
+msgid "Use the stylesheet?"
+msgstr "Das Stylesheet verwenden?"
+
+#: admin/settings.php:193
+msgid "Sets whether to use the stylesheet or not. Set to no if you want to copy the styles to your themes style.css."
+msgstr "Legt fest, ob das Stylesheet verwendet werden soll. Auf Nein stellen, wenn Du die Styles in style.css deines Themes kopieren willst."
+
+#: admin/settings.php:196
+msgid "Use ImageFlow as default slideshow?"
+msgstr "ImageFlow als Hauptslideshow verwenden?"
+
+#: admin/settings.php:201
+msgid "Chose yes to substitute Imagerotator with ImageFlow."
+msgstr "Ja anklicken um Imagerotator mit ImageFlow auszuwechseln."
+
+#: admin/settings.php:205
+msgid "Update"
+msgstr "Update"
+
+#: admin/settings.php:212
+msgid "Reset options"
+msgstr ""
+
+#: admin/settings.php:215
+msgid "Reset all options/settings to the default installation."
+msgstr ""
+
+#: admin/settings.php:216
+msgid "Reset settings"
+msgstr ""
+
+#: admin/settings.php:216
+msgid ""
+"Reset all options to default settings ?\\n"
+"\\n"
+"Choose [Cancel] to Stop, [OK] to proceed.\\n"
+msgstr ""
+
+#: admin/settings.php:221
+msgid "Uninstall options from the database"
+msgstr "Einstellungen aus der Datenbank entfernen"
+
+#: admin/settings.php:225
+msgid "You don't like NextGEN ImageFlow?"
+msgstr "NextGEN ImageFlow gef&auml;llt Dir nicht?"
+
+#: admin/settings.php:226
+msgid "No problem, before you deactivate this plugin press the Uninstall Button, because deactivating NextGEN ImageFlow does not remove any data that may have been created. "
+msgstr "Kein Problem. Bevor Du dieses Plugin deaktivierst, dr&uuml;cke den Deinstallierknopf, da keine eventuell  produzierten Daten durch Deaktivierung von NextGEN ImageFlow entfernt werden."
+
+#: admin/settings.php:227
+msgid "Uninstall plugin"
+msgstr "Plugin entfernen"
+
+#: admin/settings.php:227
+msgid ""
+"You are about to Uninstall this plugin from WordPress.\\n"
+"This action is not reversible.\\n"
+"\\n"
+"Choose [Cancel] to Stop, [OK] to Uninstall.\\n"
+msgstr ""
+
+#: admin/settings.php:234
+msgid "Custom Settings"
+msgstr "Grundeinstellungen &Auml;ndern"
+
+#: admin/settings.php:235
+msgid "Below all the different settings you can find the custom field names, for example <code>if_background_color</code>, with which you can override the default settings. All you need to do is enter them as a new custom field for a certain post and add new values. Only Settings that display a custom field below them can be changed!!"
+msgstr "Unterhalb all den Einstellungen findest Du die Custom Field Namen, z.B. <code>if_background_color</code>, mit denen Du die Grundeinstellunegn ver&auml;dern kannst. Das einzige, was gemacht werden muss ist  f&uuml;r einen gewissen Beitrag ein neues Custom Field einzutragen und dem einen anderen Wert zu geben. Nur Einstellungen, unter denen ein Custom Field Name steht kann ge&auml;ndert werden!!"
+
+#: admin/settings.php:236
+msgid "Shortcodes"
+msgstr "Shortcodes"
+
+#: admin/settings.php:237
+msgid "All the following tags can be used on posts and pages"
+msgstr "Alle der nachfolgenden Tags k&ouml;nnen in Beitr&auml;gen und auf Seiten verwendet werden"
+
+#: admin/settings.php:246
+msgid "<span class=\"blue\">id</span> is the gallery id."
+msgstr "<span class=\"blue\">id</span> ist die Gallerie ID."
+
+#: admin/settings.php:247
+msgid "<span class=\"green\">tags</span> is a comma seperated list of image tags"
+msgstr "<span class=\"green\">tags</span> ist eine mit Kommas getrennte Liste von Bild Tags"
+
+#: admin/settings.php:248
+msgid "<span class=\"orange\">id</span> are image IDs"
+msgstr "<span class=\"orange\">id</span> sind Bilder IDs"
+
+#: admin/settings.php:249
+msgid "<span class=\"red\">max</span> is the maximum amount of mages retrieved"
+msgstr "<span class=\"red\">max</span> ist die maximale Anzahl an geholten Bildern"
+
+#: admin/settings.php:250
+msgid "<span class=\"antra\">id</span> is the album id"
+msgstr "<span class=\"antra\">id</span> ist die Album ID"
+
+#: admin/settings.php:251
+msgid "Example: <em>[if-album id=\"3\"]</em>"
+msgstr "Beispiel: <em>[if-album id=\"3\"]</em>"
+
+#: admin/settings.php:254
+msgid "Template tags"
+msgstr "Template Tags"
+
+#: admin/settings.php:255
+msgid "If you want to show ImageFlow outside a post or a page (in a template), then you can use any of the following template tags. Have a look at the shortcode descriptions to see what all the variables mean."
+msgstr "Wenn Du ImageFlow ausserhalb eines Beitrages oder einer Seite (in einer Template) zeigen willst, dann benutze folgende Template Tags. Schau Dir die Shortcode Beschreibungen an um zu sehen, was die Variablen bedeuten."
+
+#: admin/settings.php:263
+msgid "Example:"
+msgstr "Beispiel:"
+
+#: admin/settings.php:270
+msgid "As always, when something has been created there are people to thank. This is that list:"
+msgstr "Jedesmal, wenn irgendwas kreiert wurde gibt es Leuten zu danken. Dies ist diese Liste:"
+
+#: admin/settings.php:271
+msgid "for the idea for this plugin"
+msgstr "f&uuml;r die Idee zu diesem Plugin"
+
+#: admin/settings.php:271
+msgid "for ImageFlow"
+msgstr "f&uuml;r ImageFlow"
+
+#: admin/settings.php:271
+msgid "for the great NextGEN Gallery"
+msgstr "f&uuml;r die grossartige NextGEN Gallery"
+
+#: admin/settings.php:271
+msgid "for the Spanish language files"
+msgstr "f&uuml;r die Spanischen Sprachdateien"
+
+#: admin/settings.php:271
+msgid "for the Italian language files"
+msgstr "f&uuml;r die Italienischen Sprachdateien"
+
+#: admin/settings.php:271
+msgid "for the Danish language files"
+msgstr "f&uuml;r die D&auml;nischen Sprachdateien"
+
+#: admin/settings.php:277
+msgid "We spend a lot of time and effort on implementing new features and on the maintenance of this plugin, so if you feel generous and have a few bucks to spare, then please consider to donate."
+msgstr "Wir verbringen viel Zeit und Aufwand mit neuen Features und der Instandhaltung dieses Plugins, wenn Du dich also spendabel f&uuml;hlst und ein paar Euro übrig hast, dann denke bitte &uuml;ber eine Spende nach."
+
+#: admin/settings.php:278
+msgid "Click on the button below and you will be redirected to the PayPal site where you can make a safe donation"
+msgstr "Klicke auf den Knopf und Du wirst zur PayPal Seite weitergeleitet, von wo aus Du eine sichere Spende leisten kannst"
+
+#: admin/settings.php:282
+msgid "NextGEN ImageFlow Plugin @ http://shabushabu-webdesign.com"
+msgstr "NextGEN ImageFlow Plugin @ http://shabushabu-webdesign.com"
+
+#: admin/settings.php:289
+msgid "Make payments with PayPal - it's fast, free and secure!"
+msgstr "T&auml;tige Bezahlungen mit PayPal - es ist schnell, umsonst und sicher!"
+
+#: admin/settings.php:292
+msgid "Thank you and all the best!"
+msgstr "Danke sehr und Alles Gute!"
+
+#: lib/functions.php:35
+msgid "[Pictures not found]"
+msgstr "[Bilder nicht gefunden]"
+
+#~ msgid "Absolute Path"
+#~ msgstr "Absoluter Pfad"
+#~ msgid "Absolute path to your WP installation."
+#~ msgstr "Absoluter Pfad zu deiner WP Installation."
+#~ msgid "Initial value (NO trailing slash!):"
+#~ msgstr "Anfangswert (KEIN Slash am Ende!):"
+#~ msgid "Loading"
+#~ msgstr "Laden"
+

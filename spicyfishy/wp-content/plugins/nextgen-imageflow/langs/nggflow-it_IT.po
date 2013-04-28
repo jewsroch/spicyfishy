@@ -1,0 +1,200 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: NextGEN ImageFlow in italiano\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2008-05-28 14:34+0100\n"
+"Last-Translator: Gianni Diurno (aka gidibao) <gidibao@gmail.com>\n"
+"Language-Team: gidibao.net <gidibao@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-KeywordsList: _e;__\n"
+"X-Poedit-Language: Italian\n"
+"X-Poedit-Country: ITALY\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: nggImageFlowSettings.php:29
+msgid "Update successfully"
+msgstr "Aggiornato con succeso"
+
+#: nggImageFlowSettings.php:37
+msgid "Reset all settings to default parameter"
+msgstr "Ripristina tutte le impostazioni ai parametri predefiniti"
+
+#: nggImageFlowSettings.php:45
+msgid "Uninstall sucessfull ! Now delete the plugin and enjoy your life ! Good luck !"
+msgstr "Disinstallato con successo. Ora puoi cancellare il plugin. Buona fortuna! "
+
+#: nggImageFlowSettings.php:66
+#: nggImageFlowSettings.php:76
+msgid "General Settings"
+msgstr "Impostazioni generali"
+
+#: nggImageFlowSettings.php:67
+msgid "Setup"
+msgstr "Configurazione"
+
+#: nggImageFlowSettings.php:79
+msgid "Reflection Background Color"
+msgstr "Colore di sfondo del riflesso"
+
+#: nggImageFlowSettings.php:81
+msgid "Background Color of reflection (hexidecimal color value e.g ff00ff)."
+msgstr "Colore di sfondo per il riflesso espresso con valore esagesimale del colore: ad es. ff00ff"
+
+#: nggImageFlowSettings.php:84
+msgid "Javascript Effects"
+msgstr "Effetti Javascripts"
+
+#: nggImageFlowSettings.php:87
+msgid "None"
+msgstr "Nessuno"
+
+#: nggImageFlowSettings.php:88
+msgid "Highslide"
+msgstr "Highslide"
+
+#: nggImageFlowSettings.php:89
+msgid "Lightbox"
+msgstr "Lightbox"
+
+#: nggImageFlowSettings.php:90
+msgid "The effect to open up the focused image with."
+msgstr "L'effetto per la messa a fuoco dell'immagine"
+
+#: nggImageFlowSettings.php:93
+msgid "Reflection Height"
+msgstr "Altezza del riflesso"
+
+#: nggImageFlowSettings.php:94
+msgid "Sets the height of the reflection in percent of the source image."
+msgstr "Imposta l'altezza del riflesso in percentuale rispetto alla immagine nativa"
+
+#: nggImageFlowSettings.php:97
+msgid "Number of Images"
+msgstr "Il numero delle immagini"
+
+#: nggImageFlowSettings.php:98
+msgid "Sets the number of images on each side of the focused one."
+msgstr "Imposta il numero delle immagini ai lati di quella centrale"
+
+#: nggImageFlowSettings.php:101
+msgid "Slider Width"
+msgstr "Larghezza dello slider"
+
+#: nggImageFlowSettings.php:102
+msgid "Sets the width of the slider div in px. Do not change unless you replace the slider image!"
+msgstr "Imposta la larghezza dello slider (in pixel). Non modificare sino a quando non avrai sostituito l'immagine! "
+
+#: nggImageFlowSettings.php:105
+msgid "Image Cursor Type"
+msgstr "Modello di cursore per l'immagine"
+
+#: nggImageFlowSettings.php:106
+msgid "Sets the cursor type for all images. Default is \"pointer\"."
+msgstr "Imposta il tipo di cursore per tutte le immagini. Il predefinito é \"pointer\""
+
+#: nggImageFlowSettings.php:109
+msgid "Slider Cursor Type"
+msgstr "Modello di cursore slider"
+
+#: nggImageFlowSettings.php:110
+msgid "Sets the slider cursor type. Default is \"e-resize\"."
+msgstr "Imposta il tipo di cursore slider. Il modello predefinito é \"e-resize\""
+
+#: nggImageFlowSettings.php:113
+msgid "Slideshow Starting Point"
+msgstr "Punto di partenza dello slideshow"
+
+#: nggImageFlowSettings.php:114
+msgid "Sets which image the slideshow will start with."
+msgstr "Imposta l'immagine centrale all'avvio dello slideshow"
+
+#: nggImageFlowSettings.php:117
+msgid "Use the stylesheet?"
+msgstr "Desideri utilizzare il foglio di stile?"
+
+#: nggImageFlowSettings.php:120
+msgid "Yes"
+msgstr "Sì"
+
+#: nggImageFlowSettings.php:121
+msgid "No"
+msgstr "No"
+
+#: nggImageFlowSettings.php:122
+msgid "Sets whether to use the stylesheet or not. Set to no if you want to copy the styles to your themes style.css."
+msgstr "Imposta se utilizzare oppure no il foglio di stile. Seleziona no se desideri copiare lo stile direttamente nel file style.css del tuo tema. "
+
+#: nggImageFlowSettings.php:126
+msgid "Update"
+msgstr "Aggiorna"
+
+#: nggImageFlowSettings.php:133
+msgid "Reset options"
+msgstr "Ripristina le opzioni"
+
+#: nggImageFlowSettings.php:136
+msgid "Reset all options/settings to the default installation."
+msgstr "Ripristina tutte le opzioni/impostazioni ai valori predefiniti della installazione."
+
+#: nggImageFlowSettings.php:137
+msgid "Reset settings"
+msgstr "Ripristina le impostazioni"
+
+#: nggImageFlowSettings.php:137
+msgid ""
+"Reset all options to default settings ?\\n"
+"\\n"
+"Choose [Cancel] to Stop, [OK] to proceed.\\n"
+msgstr ""
+"Desideri ripristinare tutte le opzioni ai valori di impostazione predefiniti ?\\n"
+"\\n"
+"Scegli [Cancel] per fermarti, [OK] per procedere.\\n"
+
+#: nggImageFlowSettings.php:142
+msgid "Uninstall options from the database"
+msgstr "Disinstallare le opzioni dal database"
+
+#: nggImageFlowSettings.php:146
+msgid "You don't like NextGEN ImageFlow?"
+msgstr "Non ti piace NextGEN ImageFlow?"
+
+#: nggImageFlowSettings.php:147
+msgid "No problem, before you deactivate this plugin press the Uninstall Button, because deactivating NextGEN ImageFlow does not remove any data that may have been created. "
+msgstr "Nessun problema! Prima di disattivare il plugin premi il pulsante di disinstallazione poiché la disattivazione in sè di NextGEN ImageFlow non comporta la rimozione dei dati che sono stati creati."
+
+#: nggImageFlowSettings.php:148
+msgid "Uninstall plugin"
+msgstr "Disinstalla il plugin"
+
+#: nggImageFlowSettings.php:148
+msgid ""
+"You are about to Uninstall this plugin from WordPress.\\n"
+"This action is not reversible.\\n"
+"\\n"
+"Choose [Cancel] to Stop, [OK] to Uninstall.\\n"
+msgstr ""
+"Stai per disinstallare da WordPress questo plugin.\\n"
+"L'azione non sarà reversibile.\\n"
+"\\n"
+"Scegli [Cancel] per fermarti, [OK] per disinstallare.\\n"
+
+#: nggImageFlow.php:31
+msgid "You are not allowed to call this page directly."
+msgstr "Non ti é permesso chiamare direttamente questa pagina."
+
+#: nggImageFlow.php:49
+msgid "Sorry, NextGEN ImageFlow works only in combination with NextGEN Gallery."
+msgstr "NextGEN ImageFlow funziona solamente in combinazione con la NextGEN Gallery."
+
+#: nggImageFlow.php:116
+msgid "Loading"
+msgstr "Un attimo..."
+
+#: nggImageFlow.php:192
+msgid "ImageFlow"
+msgstr "ImageFlow"
+

@@ -1,0 +1,444 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: WPCommentRemix v1.3\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-06-18 15:37-0500\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Jason DeVelvis <none@nobody.com>\n"
+"Language-Team: Pressography\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: ajax_comments.php:35
+msgid "Comment"
+msgstr ""
+
+#: ajax_comments.php:36
+msgid "Date"
+msgstr ""
+
+#: ajax_comments.php:37
+msgid "Actions"
+msgstr ""
+
+#: ajax_comments.php:54
+msgid "There are no comments for this post"
+msgstr ""
+
+#: commentlinks_js.php:110
+#: wpcommentremix.php:282
+msgid "Posting Reply... Please Be Patient"
+msgstr ""
+
+#: quickreply.php:81
+msgid "Reply To This Comment"
+msgstr ""
+
+#: quickreply.php:94
+msgid "Cancel"
+msgstr ""
+
+#: quickreply.php:96
+msgid "Save Reply"
+msgstr ""
+
+#: wpcommentremix.php:74
+#: wpcommentremix.php:270
+msgid "Reply"
+msgstr ""
+
+#: wpcommentremix.php:75
+#: wpcommentremix.php:271
+msgid "Quote"
+msgstr ""
+
+#: wpcommentremix.php:76
+msgid "Comment Tags:"
+msgstr ""
+
+#: wpcommentremix.php:77
+msgid "Originally Posted By"
+msgstr ""
+
+#: wpcommentremix.php:207
+#: wpcommentremix.php:277
+msgid "Ignore"
+msgstr ""
+
+#: wpcommentremix.php:244
+#: wpcommentremix.php:283
+msgid "In Need of Reply"
+msgstr ""
+
+#: wpcommentremix.php:269
+msgid "Edit"
+msgstr ""
+
+#: wpcommentremix.php:272
+msgid "Edit this comment"
+msgstr ""
+
+#: wpcommentremix.php:273
+msgid "Reply to this comment"
+msgstr ""
+
+#: wpcommentremix.php:274
+msgid "Quote & reply to this comment"
+msgstr ""
+
+#: wpcommentremix.php:276
+msgid "Unignore"
+msgstr ""
+
+#: wpcommentremix.php:278
+msgid "Mark this post as in need of a reply"
+msgstr ""
+
+#: wpcommentremix.php:279
+msgid "Ignore this post for replies"
+msgstr ""
+
+#: wpcommentremix.php:280
+msgid "View All"
+msgstr ""
+
+#: wpcommentremix.php:281
+msgid "View all comments for this post"
+msgstr ""
+
+#: wpcommentremix.php:626
+msgid "WP Comment Remix Options"
+msgstr ""
+
+#: wpcommentremix.php:628
+msgid "Ignore All Comments"
+msgstr ""
+
+#: wpcommentremix.php:629
+msgid "Click this button to ignore all comments currently \"In Need Of Reply\""
+msgstr ""
+
+#: wpcommentremix.php:639
+msgid "Comment Meta"
+msgstr ""
+
+#: wpcommentremix.php:640
+msgid "You can control whether or not the Reply and Quote links say, and whether or not they show up at all"
+msgstr ""
+
+#: wpcommentremix.php:644
+msgid "Comment Replies"
+msgstr ""
+
+#: wpcommentremix.php:648
+msgid "Enable Reply To Link"
+msgstr ""
+
+#: wpcommentremix.php:653
+msgid "Replies Link Text"
+msgstr ""
+
+#: wpcommentremix.php:656
+msgid "Text for the \"Reply To\" link (can be an img tag, to make the quote link an image)"
+msgstr ""
+
+#: wpcommentremix.php:660
+msgid "Comment Quoting"
+msgstr ""
+
+#: wpcommentremix.php:664
+msgid "Enable Quote Link"
+msgstr ""
+
+#: wpcommentremix.php:669
+msgid "Quoting Link Text"
+msgstr ""
+
+#: wpcommentremix.php:672
+msgid "Text for the \"Quote\" link (can be an img tag, to make the quote link an image)"
+msgstr ""
+
+#: wpcommentremix.php:676
+msgid "Quoted Comment Prefix"
+msgstr ""
+
+#: wpcommentremix.php:681
+msgid "Text that goes just inside the blockquote tag, usually something like \"Originally Posted By \" "
+msgstr ""
+
+#: wpcommentremix.php:685
+msgid "Separator"
+msgstr ""
+
+#: wpcommentremix.php:688
+msgid "Separator between the Reply To and Quote links (if necessary - can be an img tag, to make the separator an image)"
+msgstr ""
+
+#: wpcommentremix.php:693
+#: wpcommentremix.php:698
+#: wpcommentremix.php:730
+msgid "Comment Tags"
+msgstr ""
+
+#: wpcommentremix.php:694
+msgid "Comment tags add tag functionality to the comments on your blog, so you and your users can search through them more easily. This is helpful not only for blogs that get a lot of comments, but also smaller blogs, because it adds to SEO benefits and enables you to add comment tag clouds to your blog."
+msgstr ""
+
+#: wpcommentremix.php:702
+msgid "Enable Comment Tags"
+msgstr ""
+
+#: wpcommentremix.php:704
+msgid "Check the box above to enable comment tags"
+msgstr ""
+
+#: wpcommentremix.php:708
+msgid "Comment Tag Label"
+msgstr ""
+
+#: wpcommentremix.php:711
+msgid "Text before the tag links (can be an img tag)"
+msgstr ""
+
+#: wpcommentremix.php:715
+msgid "Comment Tag Separator"
+msgstr ""
+
+#: wpcommentremix.php:718
+msgid "Separator between the each comment tag (if necessary - can be an img tag, to make the separator an image)"
+msgstr ""
+
+#: wpcommentremix.php:722
+msgid "Which To Show First?"
+msgstr ""
+
+#: wpcommentremix.php:726
+msgid "Reply To and/or Quote Links"
+msgstr ""
+
+#: wpcommentremix.php:733
+msgid "If you're using both Comment Meta and Comment Tags, they will be displayed on 2 lines at the bottom of each comment, you can change which shows on the first line"
+msgstr ""
+
+#: wpcommentremix.php:739
+#: wpcommentremix.php:744
+msgid "Comment Tag Header"
+msgstr ""
+
+#: wpcommentremix.php:740
+msgid "The comment tag header shows the top tags for the displayed comments, and allows your readers to quickly filter by a tag. The comment tag header will only be displayed if comment tags are enabled, as well"
+msgstr ""
+
+#: wpcommentremix.php:748
+msgid "Enable Comment Tag Header, Above Comments"
+msgstr ""
+
+#: wpcommentremix.php:750
+msgid "Displays the top 10 comment tags above the comment area, for easy filtering"
+msgstr ""
+
+#: wpcommentremix.php:754
+msgid "Maximum Number Displayed"
+msgstr ""
+
+#: wpcommentremix.php:757
+msgid "Maximum number of tags displayed"
+msgstr ""
+
+#: wpcommentremix.php:761
+msgid "Comment Tag Header Label"
+msgstr ""
+
+#: wpcommentremix.php:764
+msgid "Text before the tag links (can be an img tag) in the tag header"
+msgstr ""
+
+#: wpcommentremix.php:768
+msgid "Comment Tag Header Separator"
+msgstr ""
+
+#: wpcommentremix.php:771
+msgid "Separator between the each comment tag in the tag header (if necessary - can be an img tag, to make the separator an image)"
+msgstr ""
+
+#: wpcommentremix.php:775
+msgid "Public Comment Display Options"
+msgstr ""
+
+#: wpcommentremix.php:776
+msgid "These comment display options extend Wordpress's comment functionality by giving you more control over how the comments are displayed on your blog"
+msgstr ""
+
+#: wpcommentremix.php:780
+msgid "Hide Trackbacks?"
+msgstr ""
+
+#: wpcommentremix.php:784
+msgid "Hide Trackback Entries"
+msgstr ""
+
+#: wpcommentremix.php:786
+msgid "Check this box if you want to hide trackbacks from your comments. When checked, hiding trackbacks ignores the following option (Show Trackbacks After Comments)"
+msgstr ""
+
+#: wpcommentremix.php:790
+msgid "Show Trackbacks After Comments?"
+msgstr ""
+
+#: wpcommentremix.php:794
+msgid "Show Trackback Entries After Comments"
+msgstr ""
+
+#: wpcommentremix.php:796
+msgid "Check this box if you want to show trackbacks after your comments. This option is ignored if \"Hide Trackback Entries\" is checked"
+msgstr ""
+
+#: wpcommentremix.php:800
+msgid "Sort Comments By"
+msgstr ""
+
+#: wpcommentremix.php:804
+msgid "Date Posted"
+msgstr ""
+
+#: wpcommentremix.php:808
+msgid "Author Name"
+msgstr ""
+
+#: wpcommentremix.php:814
+msgid "Sort Order"
+msgstr ""
+
+#: wpcommentremix.php:817
+msgid "Select"
+msgstr ""
+
+#: wpcommentremix.php:818
+msgid "Ascending"
+msgstr ""
+
+#: wpcommentremix.php:819
+msgid "Descending"
+msgstr ""
+
+#: wpcommentremix.php:825
+msgid "Admin Area Comment Display Options"
+msgstr ""
+
+#: wpcommentremix.php:826
+msgid "These comment display options can modify the features you can use in the admin area"
+msgstr ""
+
+#: wpcommentremix.php:830
+msgid "Unreplied Comments"
+msgstr ""
+
+#: wpcommentremix.php:834
+msgid "Show Unreplied # In Menu"
+msgstr ""
+
+#: wpcommentremix.php:836
+msgid "Check this box if you want to show the number of comments in need of reply in the admin menu"
+msgstr ""
+
+#: wpcommentremix.php:840
+msgid "Comment Links"
+msgstr ""
+
+#: wpcommentremix.php:844
+msgid "Show extra links in comment listings"
+msgstr ""
+
+#: wpcommentremix.php:846
+msgid "Check this box if you want to show the Edit, Reply, Quote, View All, and Mark Replied/Unreplied links in comment listings"
+msgstr ""
+
+#: wpcrwidgets.php:38
+#: wpcrwidgets.php:90
+#: wpcrwidgets.php:148
+#: wpcrwidgets.php:219
+msgid "Title:"
+msgstr ""
+
+#: wpcrwidgets.php:39
+#: wpcrwidgets.php:91
+#: wpcrwidgets.php:149
+#: wpcrwidgets.php:220
+msgid "Template:"
+msgstr ""
+
+#: wpcrwidgets.php:41
+#: wpcrwidgets.php:93
+#: wpcrwidgets.php:151
+#: wpcrwidgets.php:222
+msgid "Max Displayed:"
+msgstr ""
+
+#: wpcrwidgets.php:42
+msgid "Show Admin Comments"
+msgstr ""
+
+#: wpcrwidgets.php:46
+msgid "Displays the most recent comments"
+msgstr ""
+
+#: wpcrwidgets.php:47
+#: wpcrwidgets.php:48
+msgid "Recent Comments (Remix)"
+msgstr ""
+
+#: wpcrwidgets.php:97
+msgid "Displays the most recent trackbacks"
+msgstr ""
+
+#: wpcrwidgets.php:98
+#: wpcrwidgets.php:99
+msgid "Recent Trackbacks (Remix)"
+msgstr ""
+
+#: wpcrwidgets.php:153
+#: wpcrwidgets.php:225
+msgid "Show Only Discussions From The Past "
+msgstr ""
+
+#: wpcrwidgets.php:156
+#: wpcrwidgets.php:228
+msgid "Year(s)"
+msgstr ""
+
+#: wpcrwidgets.php:157
+#: wpcrwidgets.php:229
+msgid "Month(s)"
+msgstr ""
+
+#: wpcrwidgets.php:158
+#: wpcrwidgets.php:230
+msgid "Day(s)"
+msgstr ""
+
+#: wpcrwidgets.php:164
+msgid "Displays the most active discussions"
+msgstr ""
+
+#: wpcrwidgets.php:165
+#: wpcrwidgets.php:166
+msgid "Most Active Discussions (Remix)"
+msgstr ""
+
+#: wpcrwidgets.php:223
+msgid "Show Admin Comments?"
+msgstr ""
+
+#: wpcrwidgets.php:236
+msgid "Displays the most active Commenters"
+msgstr ""
+
+#: wpcrwidgets.php:237
+#: wpcrwidgets.php:238
+msgid "Most Active Commenters (Remix)"
+msgstr ""
+

@@ -1,0 +1,468 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: NextGEN ImageFlow by Boris Glumper\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-02-28 15:18+1000\n"
+"PO-Revision-Date: 2009-03-09 09:26-0600\n"
+"Last-Translator: Karin Sequen <karin.sequen@bumerang180.com>\n"
+"Language-Team: Karin Sequen || Bumerang 180 <info@bumerang180.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-KeywordsList: _e;__\n"
+"X-Poedit-Language: Spanish\n"
+"X-Poedit-Country: GUATEMALA\n"
+": \n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: lib/replace.php:1
+#: nggimageflow.php:28
+msgid "You are not allowed to call this page directly."
+msgstr "No le es permitido llamar esta página directamente"
+
+#: admin/settings.php:26
+msgid "Update Successfully"
+msgstr "Actualización exitosa"
+
+#: admin/settings.php:37
+msgid "Reset all settings to default parameter"
+msgstr "Restaurar todos los ajustes a los parámetros predeterminados."
+
+#: admin/settings.php:46
+msgid "Uninstall sucessfull ! Now delete the plugin and enjoy your life ! Good luck !"
+msgstr "¡Desinstalado exitosamente! ¡Ahora borre el plugin y disfrute! ¡Buena suerte!"
+
+#: admin/settings.php:67
+#: admin/settings.php:79
+msgid "General Settings"
+msgstr "Ajustes Generales"
+
+#: admin/settings.php:68
+msgid "Setup"
+msgstr "Configurar"
+
+#: admin/settings.php:69
+msgid "Help"
+msgstr "Ayuda"
+
+#: admin/settings.php:70
+#: admin/settings.php:269
+msgid "Credits"
+msgstr "Créditos"
+
+#: admin/settings.php:71
+#: admin/settings.php:276
+msgid "Donate"
+msgstr "Donar"
+
+#: admin/settings.php:82
+msgid "Use the reflection?"
+msgstr "¿Usar reflejo?"
+
+#: admin/settings.php:85
+#: admin/settings.php:94
+#: admin/settings.php:123
+#: admin/settings.php:155
+#: admin/settings.php:163
+#: admin/settings.php:171
+#: admin/settings.php:179
+#: admin/settings.php:191
+#: admin/settings.php:199
+msgid "Yes"
+msgstr "Si"
+
+#: admin/settings.php:86
+#: admin/settings.php:93
+#: admin/settings.php:124
+#: admin/settings.php:156
+#: admin/settings.php:164
+#: admin/settings.php:172
+#: admin/settings.php:180
+#: admin/settings.php:192
+#: admin/settings.php:200
+msgid "No"
+msgstr "No"
+
+#: admin/settings.php:87
+msgid "Sets whether to use the reflection or not."
+msgstr "Establece si se usará reflejo o no."
+
+#: admin/settings.php:90
+msgid "Use a PNG as reflection"
+msgstr "Usar un PNG como reflejo"
+
+#: admin/settings.php:95
+msgid "Switches from reflect2.php to reflect3.php for PNG transparency support."
+msgstr "Cambia de reflect2.php a reflect3.php para soportar PNGs con transparencia."
+
+#: admin/settings.php:98
+msgid "Reflection Background Color"
+msgstr "Color del Fondo del Reflejo"
+
+#: admin/settings.php:100
+msgid "Background Color of reflection (hexidecimal color value e.g ff00ff)."
+msgstr "Color del Fondo del Reflejo (valor hexadecimal, ej. ff00ff)"
+
+#: admin/settings.php:103
+msgid "Reflection Height"
+msgstr "Altura del Reflejo"
+
+#: admin/settings.php:104
+msgid "Sets the height of the reflection in percent of the source image."
+msgstr "Determina la altura del reflejo respecto a un porcentaje de la imagen."
+
+#: admin/settings.php:107
+msgid "Javascript Effects"
+msgstr "Efectos Javascript"
+
+#: admin/settings.php:110
+msgid "None"
+msgstr "Ninguno"
+
+#: admin/settings.php:111
+msgid "Highslide"
+msgstr "Highslide"
+
+#: admin/settings.php:112
+msgid "Lightbox"
+msgstr "Caja de Luz (Lightbox)"
+
+#: admin/settings.php:113
+msgid "The effect to open up the focused image with."
+msgstr "El efecto para abrir la imagen seleccionada."
+
+#: admin/settings.php:116
+msgid "Number of Images"
+msgstr "Número de imágenes"
+
+#: admin/settings.php:117
+msgid "Sets the number of images on each side of the focused one."
+msgstr "Determina el número de imágenes de cada lado de la imagen seleccionada."
+
+#: admin/settings.php:120
+msgid "Preload Images"
+msgstr "Precargar Imágenes"
+
+#: admin/settings.php:125
+msgid "Disables / enables the loading bar and image preloading."
+msgstr "Deshabilita / habilita la barra de carga y la precarga de imágenes"
+
+#: admin/settings.php:128
+msgid "Image Focus"
+msgstr "Enfoque de Imagen"
+
+#: admin/settings.php:129
+msgid "Multiplicator for the focussed image size in percent (1.0 = 100%, 0 = 0%)."
+msgstr "Multilicador para el tamaño de la imagen enfocada en porcentaje (1.0 = 100%, 0 = 0%)."
+
+#: admin/settings.php:132
+msgid "Slider Width"
+msgstr "Ancho del Deslizador"
+
+#: admin/settings.php:133
+msgid "Sets the width of the slider div in px. Do not change unless you replace the slider image!"
+msgstr "Determina el ancho del <div> del deslizador en pixeles.  No haga cambios a menos que reemplace la imagen del deslizador!"
+
+#: admin/settings.php:136
+msgid "Step Width"
+msgstr "Ancho del Paso"
+
+#: admin/settings.php:137
+msgid "Step width on the x-axis in px"
+msgstr "Ancho del paso en el eje x en px"
+
+#: admin/settings.php:140
+msgid "Image Cursor Type"
+msgstr "Tipo de Imagen del Cursor"
+
+#: admin/settings.php:141
+msgid "Sets the cursor type for all images. Default is \"pointer\"."
+msgstr "Determina el tipo de cursor para todas las imagenes. El cursor predeterminado es \"pointer\"."
+
+#: admin/settings.php:144
+msgid "Slider Cursor Type"
+msgstr "Tipo de Cursor para el Deslizador"
+
+#: admin/settings.php:145
+msgid "Sets the slider cursor type. Default is \"e-resize\"."
+msgstr "Determina el tipo de cursor del deslizador. El deslizador predeterminado es \"e-resize\"."
+
+#: admin/settings.php:148
+msgid "Slideshow Starting Point"
+msgstr "Punto de Inicio de la Presentación"
+
+#: admin/settings.php:149
+msgid "Sets which image the slideshow will start with."
+msgstr "Determina con cuál imagen iniciará la presentación."
+
+#: admin/settings.php:152
+msgid "Start Animation"
+msgstr "Iniciar Animación"
+
+#: admin/settings.php:157
+msgid "Animate images moving in from the right on startup"
+msgstr "Animar imágenes moviéndose desde la derecha al inicio"
+
+#: admin/settings.php:160
+msgid "Scrollbar"
+msgstr "Barra de desplazamiento"
+
+#: admin/settings.php:165
+msgid "Disables / enables the scrollbar"
+msgstr "Deshabilita / Habilita la barra de desplazamiento"
+
+#: admin/settings.php:168
+msgid "Captions"
+msgstr "Textos"
+
+#: admin/settings.php:173
+msgid "Disables / enables captions"
+msgstr "Deshabilita / Habilita los textos"
+
+#: admin/settings.php:176
+msgid "Opacity"
+msgstr "Opacidad"
+
+#: admin/settings.php:181
+msgid "Disables / enables image opacity"
+msgstr "Deshabilita / Habilita la opacidad de la imagen"
+
+#: admin/settings.php:184
+msgid "Image Opacity Range"
+msgstr "Rango de Opacidad de Imagen"
+
+#: admin/settings.php:185
+#, php-format
+msgid "Image opacity range - first value is for the focussed image (0 = 100% opacity, 10 = 0% opacity)"
+msgstr "Rango de opacidad de la imagen - el primer valor es para la imagen enfocada (0 = 100% opacidad 10 = 0% opacidad)"
+
+#: admin/settings.php:188
+msgid "Use the stylesheet?"
+msgstr "¿Usar hoja de estilos?"
+
+#: admin/settings.php:193
+msgid "Sets whether to use the stylesheet or not. Set to no if you want to copy the styles to your themes style.css."
+msgstr "Determina si se utilizarán hojas de estilo o no. Seleccione \"No\" si desea copiar los estilos a la hoja de estilos (style.css) de su tema."
+
+#: admin/settings.php:196
+msgid "Use ImageFlow as default slideshow?"
+msgstr "¿Usar ImageFlow como presentación de diapositivas predeterminada?"
+
+#: admin/settings.php:201
+msgid "Chose yes to substitute Imagerotator with ImageFlow."
+msgstr "Elija SI para sustituir ImageRotator por ImageFlow."
+
+#: admin/settings.php:205
+msgid "Update"
+msgstr "Actualizar"
+
+#: admin/settings.php:212
+msgid "Reset options"
+msgstr "Restaurar opciones"
+
+#: admin/settings.php:215
+msgid "Reset all options/settings to the default installation."
+msgstr "Restaurar todas las opciones/ajustes a los predeterminados en la instalación."
+
+#: admin/settings.php:216
+msgid "Reset settings"
+msgstr "Restaurar ajustes"
+
+#: admin/settings.php:221
+msgid "Uninstall options from the database"
+msgstr "Opciones de Desinstalación de la Base de Datos"
+
+#: admin/settings.php:225
+msgid "You don't like NextGEN ImageFlow?"
+msgstr "¿No le gusta el plugin NextGEN ImageFlow?"
+
+#: admin/settings.php:226
+msgid "No problem, before you deactivate this plugin press the Uninstall Button, because deactivating NextGEN ImageFlow does not remove any data that may have been created. "
+msgstr "No hay problema, antes de desactivar este plugin presione el Botón de Desinstalación, porque sólo desactivar el plugin no remueve la información que puede haber sido creada."
+
+#: admin/settings.php:227
+msgid "Uninstall plugin"
+msgstr "Desintalar plugin"
+
+#: admin/settings.php:234
+msgid "Custom Settings"
+msgstr "Ajustes Predeterminados"
+
+#: admin/settings.php:235
+msgid "Below all the different settings you can find the custom field names, for example <code>if_background_color</code>, with which you can override the default settings. All you need to do is enter them as a new custom field for a certain post and add new values. Only Settings that display a custom field below them can be changed!!"
+msgstr "A continuación los distintos ajustes que puede encontrar en los nombres de campos personalizados, por ejemplo <code>if_background_color</code>, con los cuales puede anular los ajustes predeterminados. Todo lo que necesita hacer es ingresarlos como un nuevo campo predeterminado para cierta entrada y agregar nuevos valores. Sólo los ajustes que aparezcan en campos personalizados serán modificados!"
+
+#: admin/settings.php:236
+msgid "Shortcodes"
+msgstr "Códigos (Shortcodes)"
+
+#: admin/settings.php:237
+msgid "All the following tags can be used on posts and pages"
+msgstr "Todas las etiquetas que aparecen a continuación pueden ser utilizadas en entradas y páginas"
+
+#: admin/settings.php:246
+msgid "<span class=\"blue\">id</span> is the gallery id."
+msgstr "<span class=\"blue\">id</span> es el ID de la galería."
+
+#: admin/settings.php:247
+msgid "<span class=\"green\">tags</span> is a comma seperated list of image tags"
+msgstr "<span class=\"green\">tags</span> es un listado separado por comas de etiquetas de imágenes."
+
+#: admin/settings.php:248
+msgid "<span class=\"orange\">id</span> are image IDs"
+msgstr "<span class=\"orange\">id</span> son los IDs de las imágenes."
+
+#: admin/settings.php:249
+msgid "<span class=\"red\">max</span> is the maximum amount of mages retrieved"
+msgstr "<span class=\"red\">max</span> es la máxima cantidad de imágenes obtenidas"
+
+#: admin/settings.php:250
+msgid "<span class=\"antra\">id</span> is the album id"
+msgstr "<span class=\"antra\">id</span> es el ID del álbum"
+
+#: admin/settings.php:251
+msgid "Example: <em>[if-album id=\"3\"]</em>"
+msgstr "Ejemplo: <em>[if-album id=\"3\"]</em>"
+
+#: admin/settings.php:254
+msgid "Template tags"
+msgstr "Etiquetas de Plantilla"
+
+#: admin/settings.php:255
+msgid "If you want to show ImageFlow outside a post or a page (in a template), then you can use any of the following template tags. Have a look at the shortcode descriptions to see what all the variables mean."
+msgstr "Si desea mostrar ImageFlow dentro de una entrada o página (en una plantilla), puede utilizar cualquiera de las siguientes etiquetas de plantilla. Observe las descripciones de los códigos para saber qué significan todas las variables."
+
+#: admin/settings.php:263
+msgid "Example:"
+msgstr "Ejemplo:"
+
+#: admin/settings.php:270
+msgid "As always, when something has been created there are people to thank. This is that list:"
+msgstr "Como siempre, cuando algo ha sido creado, hay personas a quienes agradecer. Aquí está esa lista:"
+
+#: admin/settings.php:271
+msgid "for the idea for this plugin"
+msgstr "por la idea de este plugin"
+
+#: admin/settings.php:271
+msgid "for ImageFlow"
+msgstr "por ImageFlow"
+
+#: admin/settings.php:271
+msgid "for the great NextGEN Gallery"
+msgstr "por la genial NextGEN Gallery"
+
+#: admin/settings.php:271
+msgid "for the Spanish language files"
+msgstr "por los archivos en español"
+
+#: admin/settings.php:271
+msgid "for the Italian language files"
+msgstr "for los archivos en italiano"
+
+#: admin/settings.php:277
+msgid "We spend a lot of time and effort on implementing new features and on the maintenance of this plugin, so if you feel generous and have a few bucks to spare, then please consider to donate."
+msgstr "Hemos invertido mucho tiempo y esfuerzo implementando nuevas características en el mantenimiento de este plugin, así que si es generoso y le sobran algunos dólares, por favor, considere hacer una donación."
+
+#: admin/settings.php:278
+msgid "Click on the button below and you will be redirected to the PayPal site where you can make a safe donation"
+msgstr "Haga clic en el botón abajo y será redireccionado al sitio de PayPal donde puede efectuar una donación segura"
+
+#: admin/settings.php:282
+msgid "NextGEN ImageFlow Plugin @ http://shabushabu-webdesign.com"
+msgstr "Página del Plugin NextGEN ImageFlow en http://shabushabu-webdesign.com"
+
+#: admin/settings.php:289
+msgid "Make payments with PayPal - it's fast, free and secure!"
+msgstr "Realice sus pagos con PayPal - es rápido, fácil y seguro!"
+
+#: admin/settings.php:292
+msgid "Thank you and all the best!"
+msgstr "Mil gracias y éxitos!"
+
+#: admin/admin.php:30
+msgid "Sorry, NextGEN ImageFlow works only in combination with NextGEN Gallery."
+msgstr "Lo sentimos, NextGEN ImageFlow trabaja únicamente en combinación con NextGEN Gallery."
+
+#: admin/admin.php:38
+msgid "ImageFlow"
+msgstr "ImageFlow"
+
+#: admin/admin.php:52
+msgid "A new version of NextGEN ImageFlow is available !"
+msgstr "¡Hay una nueva versión de NextGEN ImageFlow disponible!"
+
+#: admin/admin.php:52
+msgid "Download here"
+msgstr "Descargar aquí"
+
+#: admin/admin.php:55
+msgid "There was a problem moving reflect2.php into the root, so you should do that manually!"
+msgstr "¡Hubo un problema al mover el archivo reflect2.php al directorio raíz, así que deberá hacerlo manualmente!"
+
+#: admin/admin.php:58
+msgid "There was a problem moving reflect3.php into the root, so you should do that manually!"
+msgstr "¡Hubo un problema al mover el archivo reflect3.php al directorio raíz, así que deberá hacerlo manualmente!"
+
+#: admin/admin.php:93
+msgid "Get help with NextGEN ImageFlow"
+msgstr "Obtener ayuda para NextGEN ImageFlow"
+
+#: admin/admin.php:95
+msgid "<a href=\"http://shabushabu-webdesign.com/wp-plugin-nextgen-imageflow/\" target=\"_blank\">Support</a>"
+msgstr "<a href=\"http://shabushabu-webdesign.com/wp-plugin-nextgen-imageflow/\" target=\"_blank\">Soporte</a>"
+
+#: admin/admin.php:97
+msgid "More Help & Info"
+msgstr "Más información y Ayuda"
+
+#: admin/admin.php:99
+msgid "<a href=\"http://wordpress.org/extend/plugins/nextgen-imageflow\" target=\"_blank\">Download a new version</a>"
+msgstr "<a href=\"http://wordpress.org/extend/plugins/nextgen-imageflow\" target=\"_blank\">Descargar una nueva version</a>"
+
+#: lib/functions.php:35
+msgid "[Pictures not found]"
+msgstr "[Imágenes no encontradas]"
+
+#: admin/settings.php:216
+msgid ""
+"Reset all options to default settings ?\n"
+"\n"
+"Choose [Cancel] to Stop, [OK] to proceed.\n"
+msgstr ""
+"¿Reiniciar todas las opciones a los ajustes predeterminados?\n"
+"\n"
+"Seleccione [Cancelar] para Detenerse, [Aceptar] para proceder.\n"
+
+#: admin/settings.php:227
+msgid ""
+"You are about to Uninstall this plugin from WordPress.\n"
+"This action is not reversible.\n"
+"\n"
+"Choose [Cancel] to Stop, [OK] to Uninstall.\n"
+msgstr ""
+"Está a punto de desintalar este plugin de WordPress.\n"
+"Esta acción es irreversible.\n"
+"\n"
+"Seleccione [Cancelar] para detenerse, [Aceptar] para desinstalar.\n"
+
+#~ msgid ""
+#~ "Reset all options to default settings ?\\n"
+#~ "\\n"
+#~ "Choose [Cancel] to Stop, [OK] to proceed.\\n"
+#~ msgstr ""
+#~ "¿Restaurar todas las opciones a los ajustes predeterminados?\\n"
+#~ "\\n"
+#~ "Seleccione [Cancelar] para detenerse, [OK] para proceder.\\n"
+#~ msgid ""
+#~ "You are about to Uninstall this plugin from WordPress.\\n"
+#~ "This action is not reversible.\\n"
+#~ "\\n"
+#~ "Choose [Cancel] to Stop, [OK] to Uninstall.\\n"
+#~ msgstr ""
+#~ "Está a punto de Desinstalar este plugin de WordPress.\\n"
+#~ "Esta acción no es reversible.\\n"
+#~ "\\n"
+#~ "Seleccione [Cancelar] para detenerse, [OK] para desinstalar.\\n"
+

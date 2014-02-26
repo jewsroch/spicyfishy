@@ -1,4 +1,4 @@
-.htaccess
+.htaccess*
 wp-config.php
 wp-content/uploads/
 wp-content/blogs.dir/
@@ -29,3 +29,6 @@ zwati_announcement
 php.ini
 .smileys/*
 .php.ini.pre-logoff
+clean_screenshots/*
+wordpress_clean/*
+z_old_content/*

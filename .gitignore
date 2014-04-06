@@ -1,15 +1,16 @@
 .htaccess
-wp-config.php
-wp-content/uploads/
-wp-content/blogs.dir/
-wp-content/upgrade/
-wp-content/backup-db/
-wp-content/advanced-cache.php
-wp-content/wp-cache-config.php
+spicyfishy/.idea/
+spicyfishy/wp-config.php
+spicyfishy/wp-content/uploads/
+spicyfishy/wp-content/blogs.dir/
+spicyfishy/wp-content/upgrade/
+spicyfishy/wp-content/backup-db/
+spicyfishy/wp-content/advanced-cache.php
+spicyfishy/wp-content/wp-cache-config.php
 sitemap.xml
 *.log
-wp-content/cache/
-wp-content/backups/
+spicyfishy/wp-content/cache/
+spicyfishy/wp-content/backups/
 sitemap.xml
 sitemap.xml.gz
 chadjewsbury/*
@@ -26,6 +27,11 @@ swati_zach
 swati_zach/*
 zwati_announcement/*
 zwati_announcement
+spicyfishy-2013/
+spicyfishy-new/
+spicyfishy_old/
+active plugins db info.txt
+photos_old
 php.ini
 .smileys/*
 .php.ini.pre-logoff

@@ -1,6 +1,6 @@
 /**
- * SlideDeck 1.3.2 Lite - 2011-11-17
- * Copyright (c) 2011 digital-telepathy (http://www.dtelepathy.com)
+ * SlideDeck 1.4.3 Lite - 2013-03-13
+ * Copyright (c) 2012 digital-telepathy (http://www.dtelepathy.com)
  * 
  * Support the developers by purchasing the Pro version at http://www.slidedeck.com/download
  * 
@@ -33,13 +33,16 @@
 
 var SlideDeck;
 var SlideDeckSkin = {};
+var SlideDeckLens = {};
 
 (function($){
     window.SlideDeck = function(el,opts){
         var self = this,
-            el = $(el);
+            el = $(el),
+            versionPrefix = '',
+            distribution = 'lite';
         
-        var VERSION = "1.3.2";
+        var VERSION = versionPrefix + "1.4.3";
         
         this.options = {
             speed: 500,
@@ -83,19 +86,22 @@ var SlideDeckSkin = {};
         
         var UA = navigator.userAgent.toLowerCase();
         this.browser = {
-	        chrome: UA.match(/chrome/) ? true : false,
-	        firefox: UA.match(/firefox/) ? true : false,
-	        firefox2: UA.match(/firefox\/2/) ? true : false,
-	        firefox30: UA.match(/firefox\/3\.0/) ? true : false,
-	        msie: UA.match(/msie/) ? true : false,
-	        msie6: (UA.match(/msie 6/) && !UA.match(/msie 7|8/)) ? true : false,
-	        msie7: UA.match(/msie 7/) ? true : false,
-	        msie8: UA.match(/msie 8/) ? true : false,
-	        msie9: UA.match(/msie 9/) ? true : false,
-	        chromeFrame: (UA.match(/msie/) && UA.match(/chrome/)) ? true : false,
-	        opera: UA.match(/opera/) ? true : false,
-	        safari: (UA.match(/safari/) && !UA.match(/chrome/)) ? true : false
+            chrome: UA.match(/chrome/) ? true : false,
+            chromeFrame: (UA.match(/msie/) && UA.match(/chrome/)) ? true : false,
+            chromeiOS: UA.match(/crios/) ? true : false, // CriOS (Chrome for iOS)
+            firefox: UA.match(/firefox/) ? true : false,
+            firefox2: UA.match(/firefox\/2\./) ? true : false,
+            firefox30: UA.match(/firefox\/3\.0/) ? true : false,
+            msie: UA.match(/msie/) ? true : false,
+            msie6: (UA.match(/msie 6/) && !UA.match(/msie 7|8/)) ? true : false,
+            msie7: UA.match(/msie 7/) ? true : false,
+            msie8: UA.match(/msie 8/) ? true : false,
+            msie9: UA.match(/msie 9/) ? true : false,
+            msie10: UA.match(/msie 10/) ? true : false,
+            opera: UA.match(/opera/) ? true : false,
+            safari: (UA.match(/safari/) && !UA.match(/chrome|crios/)) ? true : false // Matches Safari and not "CriOS" (chrome for iOS)
         };
+        
         for(var b in this.browser){
             if(this.browser[b] === true){
                 this.browser._this = b;
@@ -113,10 +119,13 @@ var SlideDeckSkin = {};
         if(this.browser.opera === true) {
             this.browser.version = UA.match(/version\/([0-9\.]+)/)[1];
         }
-        if(this.browser.safari === true) {
+        if(this.browser.safari === true && !this.browser.chromeiOS) {
             this.browser.version = UA.match(/version\/([0-9\.]+)/)[1];
         }
-        
+        if(this.browser.chromeiOS === true) {
+            this.browser.version = UA.match(/crios\/([0-9\.]+)/)[1];
+        }
+
         var width;
         var height;
 
@@ -147,7 +156,7 @@ var SlideDeckSkin = {};
         }
         
         var FixIEAA = function(spine){
-            if(self.browser.msie && !self.browser.msie9){
+            if(self.browser.msie && ( !self.browser.msie9 && !self.browser.msie10 )){
                 var bgColor = spine.css('background-color');
                 var sBgColor = bgColor;
                 if(sBgColor == "transparent"){
@@ -249,18 +258,20 @@ var SlideDeckSkin = {};
         };
         
         
-        var autoPlay = function(){
-            gotoNext = function(){
-                if(self.pauseAutoPlay === false){
-                    if(self.options.cycle === false && self.current == self.slides.length){
+        var autoPlay = function(){           
+            var gotoNext = function(){                
+                if(self.pauseAutoPlay === false && self.options.autoPlay === true){
+                    if(self.options.cycle === false && self.current == self.slides.length){                        
                         self.pauseAutoPlay = true;
                     } else {
                         self.next();
                     }
                 }
+                
+                setTimeout(gotoNext, self.options.autoPlayInterval);
             };
             
-            setInterval(gotoNext,self.options.autoPlayInterval);
+            setTimeout(gotoNext,self.options.autoPlayInterval);
         };
         
         
@@ -388,15 +399,22 @@ var SlideDeckSkin = {};
                         textAlign: 'right'
                     };
                     
-                    if( !self.browser.msie9 ){
+                    if( !self.browser.msie9 && !self.browser.msie10 ){
                         spineStyles.top = (self.browser.msie) ? 0 : (height - spine_half_width) + "px";
                         spineStyles.marginLeft = ((self.browser.msie) ? 0 : (0 - spine_half_width)) + "px";
-	                    spineStyles.filter = 'progid:DXImageTransform.Microsoft.BasicImage(rotation=3)';
+                        
+                        // Make layout accommodations in IE8 for RTL support. Oddly enough this is not needed for IE7.
+                        var dir = document.getElementsByTagName('html')[0].dir;
+                        if(dir.toLowerCase() == "rtl" && self.browser.msie8 === true){
+                            spineStyles.marginLeft = (0 - height + spine_half_width*2) + "px";
+                        }
+                        
+                        spineStyles.filter = 'progid:DXImageTransform.Microsoft.BasicImage(rotation=3)';
                     }
 
                     spine.css( spineStyles ).addClass(self.classes.spine).addClass(self.classes.spine + "_" + (i + 1));
                     
-                    if(self.browser.msie9){
+                    if(self.browser.msie9 || self.browser.msie10){
                         spine[0].style.msTransform = 'rotate(270deg)';
                         spine[0].style.msTransformOrigin = Math.round(parseInt(el[0].style.height, 10) / 2) + 'px ' + Math.round(parseInt(el[0].style.height, 10) / 2) + 'px';
                     }
@@ -465,7 +483,7 @@ var SlideDeckSkin = {};
                         '-o-transform-origin': spine_half_width + 'px 0px'
                     });
                     
-                    if(self.browser.msie9){
+                    if(self.browser.msie9 || self.browser.msie10){
                         spine.find('.' + self.classes.index)[0].style.msTransform = 'rotate(90deg)';
                     }
 
@@ -484,8 +502,8 @@ var SlideDeckSkin = {};
               }
             
             // Setup Keyboard Interaction
-            if(self.options.keys !== false){
-                $(document).bind('keydown', function(event){
+            $(document).bind('keydown', function(event){
+                if(self.options.keys !== false){
                     if($(event.target).parents().index(self.deck) == -1){
                         if(event.keyCode == 39) {
                             self.pauseAutoPlay = true;
@@ -495,8 +513,8 @@ var SlideDeckSkin = {};
                             self.prev();
                         }
                     }
-                });
-            }
+                }
+            });
             
             // Setup Mouse Wheel Interaction
             if(typeof($.event.special.mousewheel) != "undefined"){
@@ -507,9 +525,6 @@ var SlideDeckSkin = {};
                         // Try new mousewheel assignment:
                         if( typeof(delta) == 'undefined' ){
                             delta = 0 - mousewheeldelta;
-                        }
-                        if(self.browser.msie || self.browser.safari || self.browser.chrome){
-                            delta = 0 - delta;
                         }
 
                         var internal = false;
@@ -524,10 +539,10 @@ var SlideDeckSkin = {};
                                 switch (self.options.scroll) {
                                     case "stop":
                                         event.preventDefault();
-                                        break;
+                                    break;
                                     case true:
                                     default:
-                                        if (self.current < self.slides.length || self.options.cycle == true) {
+                                        if (self.current < self.slides.length || self.options.cycle === true) {
                                             event.preventDefault();
                                         }
                                     break;
@@ -539,10 +554,10 @@ var SlideDeckSkin = {};
                                 switch (self.options.scroll) {
                                     case "stop":
                                         event.preventDefault();
-                                        break;
+                                    break;
                                     case true:
                                     default:
-                                        if (self.current != 1 || self.options.cycle == true) {
+                                        if (self.current != 1 || self.options.cycle === true) {
                                             event.preventDefault();
                                         }
                                     break;
@@ -551,27 +566,101 @@ var SlideDeckSkin = {};
                                 self.prev();
                             }
                         }
-                    }    
+                    }
                 });
+            }
+            
+            if( (self.browser.msie !== true) && (self.options.touch !== false) ){
+                var originalCoords = { x: 0, y: 0 };
+                var finalCoords = { x: 0, y: 0 };
+                var threshold = self.options.touchThreshold;
+                el[0].addEventListener('touchstart', function(event){
+                    originalCoords.x = event.targetTouches[0].pageX;
+                    originalCoords.y = event.targetTouches[0].pageY;
+                }, false);
+                el[0].addEventListener('touchmove', function(event){
+                    event.preventDefault();
+                    finalCoords.x = event.targetTouches[0].pageX;
+                    finalCoords.y = event.targetTouches[0].pageY;
+                }, false);
+                el[0].addEventListener('touchend', function(event){
+                    var limitLeft = originalCoords.x - threshold.x;
+                    var limitRight = originalCoords.x + threshold.x;
+                    var limitUp = originalCoords.y - threshold.y;
+                    var limitDown = originalCoords.y + threshold.y;
+                    
+                    if(finalCoords.x != 0){
+                        if(finalCoords.x <= limitLeft){
+                            self.pauseAutoPlay = true;
+                            self.next();
+                        } else if(finalCoords.x >= limitRight){
+                            self.pauseAutoPlay = true;
+                            self.prev();
+                        }
+                    }
+                    
+                    if(finalCoords.y != 0){
+                        if(finalCoords.y <= limitUp){
+                            self.pauseAutoPlay = true;
+                            self.vertical().next();
+                        } else if(finalCoords.y >= limitDown){
+                            self.pauseAutoPlay = true;
+                            self.vertical().prev();
+                        }
+                    }
+                    
+                    originalCoords = { x: 0, y: 0 };
+                    finalCoords = { x: 0, y: 0 };
+                }, false);
             }
             
             $(self.spines[self.current - 2]).addClass(self.classes.previous);
             $(self.spines[self.current]).addClass(self.classes.next);
-
-            if(self.options.autoPlay === true){
-                autoPlay();
-            }
             
+            autoPlay();
+
             self.isLoaded = true;
         };
         
         
-        var getValidSlide = function(ind){
-            ind = Math.min(self.slides.length,Math.max(1,ind));
+        var getPrevValidSlide = function(ind){
+            ind = Math.max(1,ind - 1);
+            if($.inArray(ind,self.disabledSlides) != -1){
+                if(ind == 1){
+                    ind = 1;
+                } else {
+                    ind = getPrevValidSlide(ind);
+                }
+            }
             return ind;
         };
-
-
+        
+        var getNextValidSlide = function(ind){
+            ind = Math.min(self.slides.length,ind + 1);
+            if($.inArray(ind,self.disabledSlides) != -1){
+                if (ind == self.slides.length) {
+                    ind = self.current;
+                }
+                else {
+                    ind = getNextValidSlide(ind);
+                }
+            }
+            return ind;
+        };
+        
+        var getValidSlide = function(ind){
+            ind = Math.min(self.slides.length,Math.max(1,ind));
+            if($.inArray(ind,self.disabledSlides) != -1){
+                if (ind < self.current) {
+                    ind = getPrevValidSlide(ind);
+                }
+                else {
+                    ind = getNextValidSlide(ind);
+                }
+            }
+            return ind;
+        };
+        
         var completeCallback = function(params){
             var afterFunctions = [];
             if(typeof(self.options.complete) == "function"){
@@ -590,7 +679,7 @@ var SlideDeckSkin = {};
                 self.looping = false;
                 
                 for(var z=0; z<afterFunctions.length; z++){
-                    afterFunctions[z]();
+                    afterFunctions[z](self);
                 }
             };
             
@@ -735,16 +824,21 @@ var SlideDeckSkin = {};
                             val = self.options[key];
                         }
                     break;                    
+                    case "autoPlay":
+                        if(typeof(val) !== "boolean"){
+                            val = self.options[key];
+                        }
+                        self.pauseAutoPlay = false;
+                    break;
                     case "scroll":
                     case "keys":
                     case "activeCorner":
                     case "hideSpines":
-                    case "autoPlay":
                     case "cycle":
                         if(typeof(val) !== "boolean"){
                             val = self.options[key];
                         }
-                    break;                    
+                    break;
                     case "transition":
                         if(typeof(val) !== "string"){
                             val = self.options[key];
@@ -773,7 +867,7 @@ var SlideDeckSkin = {};
         var setupDimensions = function(){
             height = el.height();
             width = el.width();
-
+            
             el.css('height', height + "px");
     
             spine_inner_width = 0;
@@ -881,6 +975,30 @@ var SlideDeckSkin = {};
         
         this.goTo = function(ind,params){
             self.pauseAutoPlay = true;
+            
+            // If the ind value is a string, look up the slide by ID
+            if(typeof(ind) == "string"){
+                // Check if the string starts with a hash and prepend it if not
+                if(ind == ":first"){
+                    ind = self.slides.filter(':first');
+                } else if(ind == ":last"){
+                    ind = self.slides.filter(':last');
+                } else if(!ind.match(/^\#/)){
+                    ind = "#" + ind;
+                }
+                // Get the index of the requested element in the slides
+                var slideIndex = self.slides.index($(ind));
+                
+                // If the ID exists, go to it
+                if(slideIndex != -1){
+                    ind = slideIndex + 1;
+                }
+                // Otherwise, return false since there is no ID to go to
+                else {
+                    return false;
+                }
+            }
+            
             slide(Math.min(self.slides.length,Math.max(1,ind)),params);
             return self;
         };
@@ -894,7 +1012,7 @@ var SlideDeckSkin = {};
         this.vertical = function(){
             return false;
         };
-        
+                        
         initialize(opts);
     };
     

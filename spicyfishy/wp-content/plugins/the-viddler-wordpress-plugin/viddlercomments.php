@@ -1,15 +1,17 @@
 <?php
 /*
 Plugin Name: Viddler Wordpress plugin
-Plugin URI: http://developers.viddler.com/projects/plugins/wpviddler/
+Plugin URI: http://wordpress.org/extend/plugins/the-viddler-wordpress-plugin/
 Description: Video commenting and publishing made easy. Power your blog with Viddler using this plugin to easily publish videos within your posts and pages as well as enable video commenting!
-Author: Colin Devroe
-Version: 1.4.1
-Author URI: http://cdevroe.com/
+Author: Jeff Johns
+Version: 2.0.0
+Author URI: http://www.viddler.com
 */
 
 // Load optional configuration options / securely
-include('viddlerconfig.php');
+include('legacy_support.php');
+
+require_once('uploader/controllers/uploader.php');
 
 
 // DO NOT EDIT
@@ -68,11 +70,6 @@ if (!get_option('viddler_show_widget')) {
 	$viddler_show_widget = get_option('viddler_show_widget');
 }
 
-if (!get_option('viddler_allow_login')) {
-	$viddler_allow_login= 'true';
-} else {
-	$viddler_allow_login = get_option('viddler_allow_login');
-}
 
 
 function viddler_edit_commentform($post) {
@@ -90,7 +87,7 @@ function viddler_edit_commentform($post) {
 
 function viddler_recordlink($text='') {
 
-	global $viddler_player_type_comments, $viddler_comment_box_id, $viddler_button_text, $viddler_custom_tags,$viddler_yourusername,$viddler_yourpasswd;
+	global $viddler_player_type_comments, $viddler_comment_box_id, $viddler_button_text, $viddler_custom_tags;
 	
 	if (!$text || $text == '') {
 		$text = $viddler_button_text;
@@ -128,15 +125,17 @@ function viddler_add_editform($post) {
 function viddler_add_js() {
 	$pluginurl = get_bloginfo('wpurl').'/wp-content/plugins/the-viddler-wordpress-plugin/';
 
-	$jQuery = $pluginurl.'js/jquery.js';
+	//$jQuery = $pluginurl.'js/jquery.js';
 	$js = $pluginurl.'js/viddlercomments.js';
-	$faceboxCSS = $pluginurl.'js/facebox/facebox.css';
-	$faceboxJS = $pluginurl.'js/facebox/facebox.js';
+	$faceboxCSS = $pluginurl.'js/facebox/src/facebox.css';
+	$viddlerCSS = $pluginurl.'css/viddler-wordpress.css';
+	$faceboxJS = $pluginurl.'js/facebox/src/facebox.js';
 	
 	//echo "\n".'<script src="'.$jQuery.'" type="text/javascript"></script>'."\n";
 	wp_enqueue_script( 'jquery' ); // Submitted by Joshua Strebel of Page.ly
 	echo "\n".'<script src="'.$js.'" type="text/javascript"></script>'."\n";
 	echo "\n".'<link href="'.$faceboxCSS.'" media="screen" rel="stylesheet" type="text/css"/>'."\n";
+	echo "\n".'<link href="'.$viddlerCSS.'" media="screen" rel="stylesheet" type="text/css"/>'."\n";
 	echo "\n".'<script src="'.$faceboxJS.'" type="text/javascript"></script>'."\n";
 }
 
@@ -234,8 +233,6 @@ function viddler_config_page() {
 // Admin page
 function viddler_comments_config() {
 
-	global $viddler_username;
-	
 	?>
 	<?php if (isset($_POST['submit'])) {
 		// Update all options
@@ -249,8 +246,8 @@ function viddler_comments_config() {
 		update_option('viddler_default_link', $_POST['viddler_default_link']);
 		update_option('viddler_custom_tags', $_POST['viddler_custom_tags']);	
 		update_option('viddler_yourusername', $_POST['viddler_yourusername']);
+		update_option('viddler_yourpassword', $_POST['viddler_yourpassword']);
 		update_option('viddler_show_widget', $_POST['viddler_show_widget']);
-		update_option('viddler_allow_login', $_POST['viddler_allow_login']);
 		} ?>
 		
 	<?php if ( !empty($_POST ) ) : ?>
@@ -258,7 +255,7 @@ function viddler_comments_config() {
 	<?php endif; ?>
 	<div class="wrap">
 		<h2>The Viddler Wordpress Plugin Options</h2>
-		<p class="adminpoweredby" style="float: right;"><a class="poweredby" href="http://viddler.com/" title="Powered by Viddler"><img src="http://cdn-ll-static.viddler.com/wp-plugin/v1/images/pwviddler.png" /></a></p>
+		<p class="adminpoweredby" style="float: right;"><a class="poweredby" href="http://viddler.com/" title="Powered by Viddler"><img src="http://static.cdn-ec.viddler.com/wp-plugin/v1/images/pwviddler.png" /></a></p>
 		
 		<div class="narrow viddlernarrow">
 		<form action="" method="post" id="viddler-conf" style="margin: auto; width: 400px; ">
@@ -290,17 +287,11 @@ function viddler_comments_config() {
 			<select id="viddler_default_link" name="viddler_default_link">
 				<option value="true" <?php if (get_option('viddler_default_link') == 'true' || !get_option('viddler_default_link')) { echo 'selected'; } ?>>Yes, please.</option>
 				<option value="false" <?php if (get_option('viddler_default_link') == 'false') { echo 'selected'; } ?>>No, leave them off.</option>
-			</select> (<?php _e('<a href="#viddlerfaq-autocreatebutton">?</a>'); ?>)</p>
-			<p><label for="viddler_allow_login">Force commenters to use your Viddler account?</label>
-			<select id="viddler_allow_login" name="viddler_allow_login">
-				<option value="true" <?php if (get_option('viddler_allow_login') == 'true' || !get_option('viddler_allow_login')) { echo 'selected'; } ?>>No, they can use their Viddler account.</option>
-				<option value="false" <?php if (get_option('viddler_allow_login') == 'false') { echo 'selected'; } ?>>Yes, store all comments in my Viddler account.</option>
-			</select> (<?php _e('<a href="#viddlerfaq-allowlogin">?</a>'); ?>)<br />
-			<?php if (get_option('viddler_allow_login') == 'false') { 
-			if ($viddler_username == '') {
-			
-			echo $viddler_username;  ?>
-			<span style="color: red;">Important: You must edit viddlerconfig.php in wp-content/plugins/the-viddler-wordpress-plugin/ and add your Viddler password.</span><?php } } ?></p>
+			</select>
+  <?php if (get_option('viddler_yourusername') == '') { ?>
+    <span style="color: red;">Important: You must specify your Viddler credentials below.</span>
+  <?php } ?>
+</p>
 
 			<p><label for="viddler_player_type_comments">Comments player:</label>
 			<select id="viddler_player_type_comments" name="viddler_player_type_comments">
@@ -313,7 +304,9 @@ function viddler_comments_config() {
 			<p><label for="viddler_comment_box_id">Comment Box ID:</label> <input type="text" name="viddler_comment_box_id" id="viddler_comment_box_id" size="10" value="<?php if (!get_option('viddler_comment_box_id')) { echo 'comment'; } else { echo get_option('viddler_comment_box_id'); } ?>" /> (<?php _e('<a href="#viddlerfaq-commentboxid">?</a>'); ?>)</p>
 
 <h3>Wordpress admin options</h3>
-			<p><label for="viddler_yourusername">Your username:</label> <input type="text" name="viddler_yourusername" id="viddler_yourusername" size="25" value="<?php if (!get_option('viddler_yourusername')) { echo ''; } else { echo get_option('viddler_yourusername'); } ?>" /> (<?php _e('<a href="#viddlerfaq-yourusername">?</a>'); ?>)<br />Store your username so you don't have to retype it.</p>
+      <p><label for="viddler_yourusername">Your username:</label> <input type="text" name="viddler_yourusername" id="viddler_yourusername" size="25" value="<?php echo get_option('viddler_yourusername'); ?>" /> (<?php _e('<a href="#viddlerfaq-yourusername">?</a>'); ?>)<br /></p>
+			
+      <p><label for="viddler_yourpassword">Your password:</label> <input type="password" name="viddler_yourpassword" id="viddler_yourpassword" size="25" value="<?php echo get_option('viddler_yourpassword'); ?>" /> (<?php _e('<a href="#viddlerfaq-yourpassword">?</a>'); ?>)</p>
 				
 			<p><label for="viddler_show_widget">Show Dashboard widget?:</label>
 			<select id="viddler_show_widget" name="viddler_show_widget">
@@ -333,9 +326,6 @@ function viddler_comments_config() {
 	<h4 id="viddlerfaq-postsplayer">The posts player</h4>
 	<p>Just like the comments player setting, this lets you choose which player to use in your web site's posts.  By default the plugin will use the default player, as it has many more features, conversational qualities, and embed options built-in.  Changing this setting will force all of your posts to use the player you choose.  However, if you'd like to use a specific player for a single post, we recommend grabbing the embed code from the Viddler.com web site.</p>
 	
-	<h4 id="viddlerfaq-allowlogin">Force users to use your account?</h4>
-	<p>If you would like all video comments to use 1 Viddler account, as opposed to every single video comment being saved into their own individual Viddler accounts.</p>
-	
 	<h4 id="viddlerfaq-downloadsource">What is a link to download source?</h4>
 	<p>When this option is turned on a link to download the original source file that was uploaded to Viddler will be shown. So if you've uploaded a WMV, MOV, or MP4 file to Viddler, someone can download the video with a single click.</p>
 	
@@ -344,6 +334,9 @@ function viddler_comments_config() {
 	
 	<h4 id="viddlerfaq-yourusername">Your username</h4>
 	<p>The username you use to log into Viddler's Web site. Saving your username helps to speed up the posting process. This username <em>is not used</em> to enable single-account video comment saving.</em></p>
+	
+	<h4 id="viddlerfaq-yourpassword">Your password</h4>
+	<p>Your viddler password. This will be required if your account is private or you want to get non-public videos to embed.</em></p>
 	
 	<h4 id="viddlerfaq-customtags">Custom tags</h4>
 	<p>By default, when you or anyone leaves a video comment on one of your posts using the record with webcam feature, this plugin tags each of these videos with three default tags: videocomment, comment, webcam.  You may add tags relevant to your site for tracking purposes (ie. cdevroe.com).  You can add more than one tag by separating with commas, <em>no spaces</em> (ie. yoursitename,yourname,anothertag).</p>
@@ -365,7 +358,7 @@ function viddler_comments_config() {
 	
 	
 	</div>
-	<?
+	<?php
 
 }
 
@@ -448,6 +441,9 @@ function wp25adminheader($activetab='login',$type,$errors=null,$id=null,$session
 		case 'featured':
 			$featuredClass = ' class="active"';
 		break;
+		case 'upload':
+			$uploadClass = ' class="active"';
+		break;
 		default:
 			$loginClass = ' class="active"';
 		break;
@@ -466,9 +462,9 @@ function wp25adminheader($activetab='login',$type,$errors=null,$id=null,$session
 			<li><a href="'.get_option('siteurl'). '/wp-admin/media-upload.php?type=video&tab=viddlervideos&subtab=yourvideos&post_id='.$id.'"'.$videoClass.'>Your Videos</a></li>
 			<li><a href="'.get_option('siteurl'). '/wp-admin/media-upload.php?type=video&tab=viddlervideos&subtab=search&post_id='.$id.'"'.$searchClass.'>Search</a></li>
 			<li><a href="'.get_option('siteurl'). '/wp-admin/media-upload.php?type=video&tab=viddlervideos&subtab=record&post_id='.$id.'"'.$recordClass.'>Record</a></li>
-			<li class="last"><a href="'.get_option('siteurl'). '/wp-admin/media-upload.php?type=video&tab=viddlervideos&subtab=featured&post_id='.$id.'"'.$featuredClass.'>Featured!</a></li>
+			<li class="last"><a href="'.get_option('siteurl'). '/wp-admin/media-upload.php?type=video&tab=viddlervideos&subtab=upload&post_id='.$id.'"'.$uploadClass.'>Upload</a></li>
 		</ul>
-		<a class="poweredby" href="http://viddler.com/" title="Powered by Viddler"><img src="http://cdn-ll-static.viddler.com/wp-plugin/v1/images/pwviddler.png" /></a>';
+		<a class="poweredby" href="http://viddler.com/" title="Powered by Viddler"><img src="http://static.cdn-ec.viddler.com/wp-plugin/v1/images/pwviddler.png" /></a>';
 		
 		return $headerhtml;
 }
@@ -520,7 +516,7 @@ function media_upload_viddler_featured($type,$errors=null,$id=null) {
 	$pluginurl = get_bloginfo('wpurl').'/wp-content/plugins/the-viddler-wordpress-plugin/';
 	$form_action_url = $pluginurl."viddlergateway.php";
 	
-	include('../wp-content/plugins/the-viddler-wordpress-plugin/phpviddler/phpviddler.php');
+	include('phpviddler/phpviddler.php');
 	
 	// New instance of Viddler class.
 	$v = new Viddler_V2('0118093f713643444556524f452f');
@@ -561,102 +557,114 @@ Your videos
 */
 
 function media_upload_viddler_yourvideos($type,$errors=null,$id=null) {
+
 	$pluginurl = get_bloginfo('wpurl').'/wp-content/plugins/the-viddler-wordpress-plugin/';
 	$form_action_url = $pluginurl."viddlergateway.php";
+	$html = '';
 	
-	include('../wp-content/plugins/the-viddler-wordpress-plugin/phpviddler/phpviddler.php');
+	include('phpviddler/phpviddler.php');
 	
 	// New instance of Viddler class.
 	$v = new Viddler_V2('0118093f713643444556524f452f');
 	
-	$yourusername = get_option('viddler_yourusername');
-	if (!$yourusername) { $yourusername = $_GET['viddlerusername']; }
+	$username = get_option('viddler_yourusername');
+	$password = get_option('viddler_yourpassword');
 	
-	if ($yourusername) {
-		$p = $_GET['p'];
-		$tags = $_GET['tags'];
-		$pp = 9;
+	if (empty($username)) {
+	 $html = '<p style="font-size:125%;">You must supply your Viddler username. You can do this in the plugin settings.</p>';
+	}
+	else {
+    $p = $_GET['p'];
+    $p = (empty($p) || $p < 1) ? 1 : $p;
+    $tags = $_GET['tags'];
+    $pp = 9;
+    
+    $sessionid = null;
+    $args = array(
+      'page'        =>  $p,
+      'per_page'    =>  $pp,
+      'tags'        =>  $tags
+    );
+    
+    if (! empty($password)) {
+      $auth = $v->viddler_users_auth(array(
+        'user'      =>  $username,
+        'password'  =>  $password
+      ));
+      
+      if (isset($auth['auth']['sessionid'])) {
+        $args['sessionid'] = $auth['auth']['sessionid'];
+        $args['visibility'] = 'public.invite,embed';
+      }
+      else {
+        	$html = '<p style="font-size:125%;">Your viddler.com password is incorrect. Please update your settings.</p>';
+      }
+    }
+    
+    if (! empty($sessionid)) {
+      $args['sessionid'] = $sessionid;
+    }
+    else {
+      $args['user'] = get_option('viddler_yourusername');
+    }
+  }
 		
-		if (!$p || $p < 1) $p = 1;
-		
-		$sessionid = null;
-		
-		$yourvideos = $v->viddler_videos_getByUser(array('user'=>$yourusername,'page'=>$p,'per_page'=>$pp,'tags'=>$tags));
+  if (empty($html)) {
+    $yourvideos = $v->viddler_videos_getByUser($args);
+    $numvideos = (isset($yourvideos['list_result']['video_list'])) ? count($yourvideos['list_result']['video_list']) : 0;
+    
+    if ($numvideos == 0) {
+  	 $html = '<p>Your search did not return any results.</p>';
+    }
+    else {
+	    $i = 1;
+      $defaultwidth = get_option('viddler_player_width');
+      $viddler_player_type_posts = get_option('viddler_player_type_posts');
+      if (!$defaultwidth) { $defaultwidth = '437'; }
+      if (!$viddler_player_type_posts) { $viddler_player_type_posts = 'player'; }
+      foreach ($yourvideos['list_result']['video_list'] as $video) {
+      
+        $sk = $video['permissions']['secreturl'];
+        if (! empty($sk)) {
+          $sk = explode('=', $sk);
+          $sk = $sk[1];
+        }
 	
-		if (!$yourvideos || $yourvideos['error']) {
-			//DBUG print_r($featuredvideos);
-			$html = '<p>Your search did not return any results.</p>';
+        $height = $video['height'];
+        if ($viddler_player_type_posts == 'mini') { $width = $video['width']; } else { $width = $defaultwidth; }
+
+        $html .= '<li><a href="'.$video['url'].'" target="_blank"><img width="120" class="featuredthumb" src="'.$video['thumbnail_url'].'" /></a><p><strong><a href="'.$video['url'].'" target="_blank">'.$video['title'].'</a></strong><br />By: <i><a href="'.get_option('siteurl'). '/wp-admin/media-upload.php?type=video&tab=viddlervideos&subtab=search&viddlersearchtype=&viddlerstring='.$video['author'].'&post_id='.$id.'">'.$video['author'].'</a></i> <br />Published: '.date("F d, Y",$video['upload_time']).'<br /><i>('.$video['comment_count'].' comments, '.number_format($video['view_count']).' views)</i><br /><a href="#" onclick="viddlerAddToPost(\''.$video['id'].'\',\''.$width.'\',\''.$height.'\',\''.$sk.'\'); return false;">+ Insert into post</a></p></li>';
+       }
+    }
+	
+    if ($numvideos > 1) {
+      if ($p != 1) $pages .= '<a href="'.get_option('siteurl'). '/wp-admin/media-upload.php?type=video&tab=viddlervideos&subtab=yourvideos&viddlersearchtype=&viddlerusername='.$feature['author'].'&post_id='.$id.'&p='.($p-1).'">&laquo; Previous</a> | ';
+
+      if ($pp == $numvideos) $pages .= '<a href="'.get_option('siteurl'). '/wp-admin/media-upload.php?type=video&tab=viddlervideos&subtab=yourvideos&viddlersearchtype=&viddlerusername='.$feature['author'].'&post_id='.$id.'&p='.($p+1).'">Next &raquo;</a>';
+
+      $html = '<form class="sortbytag" method="get" action="'.get_option('siteurl'). '/wp-admin/media-upload.php">
+<p>Sort by tag: <input type="text" size="6" name="tags" id="tags" value="'.$tags.'" /> <input type="submit" value=" &raquo; " /></p>
+<input type="hidden" name="type" value="video" />
+			<input type="hidden" name="tab" value="viddlervideos" />
+			<input type="hidden" name="subtab" value="yourvideos" />
+			<input type="hidden" name="post_id" value="'.$id.'" />
+			<input type="hidden" name="pp" value="1" /></form><p class="viddlerpagenav">'.$pages.'</p>'.'<ul  class="viddlerpreviousfeatures">'.$html.'</ul>'.'<p class="viddlerpagenav">'.$pages.'</p>';
 		}
-		$numvideos = count($yourvideos['list_result']['video_list']);
-	
-		$i = 1;
-	
-	if ($numvideos > 0) {
-	$defaultwidth = get_option('viddler_player_width');
-	$viddler_player_type_posts = get_option('viddler_player_type_posts');
-		if (!$defaultwidth) { $defaultwidth = '437'; }
-		if (!$viddler_player_type_posts) { $viddler_player_type_posts = 'player'; }
-	foreach ($yourvideos['list_result']['video_list'] as $video) {
-		
-		$height = $video['height'];
-		if ($viddler_player_type_posts == 'mini') { $width = $video['width']; } else { $width = $defaultwidth; }
-	
-		$html .= '<li><a href="'.$video['url'].'" target="_blank"><img width="120" class="featuredthumb" src="'.$video['thumbnail_url'].'" /></a><p><strong><a href="'.$video['url'].'" target="_blank">'.$video['title'].'</a></strong><br />By: <i><a href="'.get_option('siteurl'). '/wp-admin/media-upload.php?type=video&tab=viddlervideos&subtab=search&viddlersearchtype=&viddlerstring='.$video['author'].'&post_id='.$id.'">'.$video['author'].'</a></i> <br />Published: '.date("F d, Y",$video['upload_time']/1000).'<br /><i>('.$video['comment_count'].' comments, '.number_format($video['view_count']).' views)</i><br /><a href="#" onclick="viddlerAddToPost(\''.$video['id'].'\',\''.$width.'\',\''.$height.'\'); return false;">+ Insert into post</a></p></li>';
-	}
-	} else {
-		$featuredvideos = $video;
-		$html .= 'Need more videos.';
+      
 	}
 	
-	if ($numvideos > 1) {
-	if ($p != 1) $pages .= '<a href="'.get_option('siteurl'). '/wp-admin/media-upload.php?type=video&tab=viddlervideos&subtab=yourvideos&viddlersearchtype=&viddlerusername='.$feature['author'].'&post_id='.$id.'&p='.($p-1).'">&laquo; Previous</a> | ';
-	
-	if ($p < $numvideos) $pages .= '<a href="'.get_option('siteurl'). '/wp-admin/media-upload.php?type=video&tab=viddlervideos&subtab=yourvideos&viddlersearchtype=&viddlerusername='.$feature['author'].'&post_id='.$id.'&p='.($p+1).'">Next &raquo;</a>';
-	
-	$html = '<form class="sortbytag" method="get" action="'.get_option('siteurl'). '/wp-admin/media-upload.php">
-	<p>Sort by tag: <input type="text" size="6" name="tags" id="tags" value="'.$tags.'" /> <input type="submit" value=" &raquo; " /></p>
-	<input type="hidden" name="type" value="video" />
-				<input type="hidden" name="tab" value="viddlervideos" />
-				<input type="hidden" name="subtab" value="yourvideos" />
-				<input type="hidden" name="post_id" value="'.$id.'" />
-				<input type="hidden" name="pp" value="1" /></form><p class="viddlerpagenav">'.$pages.'</p>'.'<ul  class="viddlerpreviousfeatures">'.$html.'</ul>'.'<p class="viddlerpagenav">'.$pages.'</p>';
-	}
-	
-	} else {
-		$html = '<h3>What is your username?</h3>
-	<form method="get" action="'.get_option('siteurl'). '/wp-admin/media-upload.php">
-	<table class="describe"><tbody>
-		<tr>
-			<th valign="top" scope="row" class="label">
-				<span class="alignleft"><label for="u">' . __('Username') . '</label></span>
-				<span class="alignright"><abbr title="required" class="required">*</abbr></span>
-			</th>
-			<td class="field"><input id="viddlerusername" name="viddlerusername" value="" type="text" /></td>
-			
-		</tr>
-		<tr>
-			<td></td>
-			<td>
-				<input type="submit" class="button" value="' . attribute_escape(__(' Submit ')) . '" />
-				<input type="hidden" name="type" value="video" />
-				<input type="hidden" name="tab" value="viddlervideos" />
-				<input type="hidden" name="subtab" value="yourvideos" />
-				<input type="hidden" name="post_id" value="'.$id.'" />
-				<input type="hidden" name="pp" value="1" />
-			</td>
-			
-		</tr>
-		<tr>
-			<td colspan="2"><p>Tip: You can save your username, so you don\'t have to fill it in, by going to Settings > Viddler.</p></td>
-		</tr>
-	</tbody></table></form>';
-	}
 	$post_id = intval($_REQUEST['post_id']);
 	
 	$callback = "type_form_$type";
 	$callback_url = get_option('siteurl') . "/wp-admin/media-upload.php?type=viddlerlogin&tab=viddlerlogin&post_id=$post_id";
 	
-	echo wp25adminheader($activetab='yourvideos',$type,$errors,$id).$html.'</div></body></html>';
+	$password = get_option('viddler_yourpassword');
+	if (empty($password)) {
+    $html .= '<p style="font-size:125%;">You did not supply your Viddler password. If you have non-public videos or a private account, you will need to do this in order to work with those videos.</p>';
+    $html .= '<p style="font-size:125%;">You can supply your Viddler password under the <a href="/wp-admin/options-general.php?page=viddler-comments-config" target="_top">Viddler Plugin settings page.</a></p>';
+  }
+	
+	echo wp25adminheader($activetab='yourvideos',$type,$errors,$id).'<br /><br />'.$html.'</div></body></html>';
 }
 
 /*
@@ -667,7 +675,7 @@ function media_upload_viddler_search($type,$errors=null,$id=null) {
 	$pluginurl = get_bloginfo('wpurl').'/wp-content/plugins/the-viddler-wordpress-plugin/';
 	$form_action_url = $pluginurl."viddlergateway.php";
 	
-	include('../wp-content/plugins/the-viddler-wordpress-plugin/phpviddler/phpviddler.php');
+	include('phpviddler/phpviddler.php');
 	
 	// New instance of Viddler class.
 	$v = new Viddler_V2('0118093f713643444556524f452f');
@@ -744,14 +752,14 @@ function media_upload_viddler_search($type,$errors=null,$id=null) {
 	if ($numvideos > 1) {
 		foreach ($featuredvideos['list_result']['video_list'] as $feature) {
 		
-			$height = $video['height'];
-			
-			$html .= '<li><a href="'.$feature['url'].'" target="_blank"><img width="120" class="featuredthumb" src="'.$feature['thumbnail_url'].'" /></a><p><strong><a href="'.$feature['url'].'" target="_blank">'.$feature['title'].'</a></strong><br />By: <i><a href="'.get_option('siteurl'). '/wp-admin/media-upload.php?type=video&tab=viddlervideos&subtab=search&viddlersearchtype=&viddlerstring='.$feature['author'].'&post_id='.$id.'">'.$feature['author'].'</a></i> <br />Published: '.date("F d, Y",$feature['upload_time']/1000).'<br /><i>('.$feature['comment_count'].' comments, '.number_format($feature['view_count']).' views)</i><br /><a href="#" onclick="viddlerAddToPost(\''.$feature['id'].'\',\''.$defaultwidth.'\',\''.$height.'\'); return false;">+ Insert into post</a></p></li>';
+    		$height = $video['height'];
+    		
+    		$html .= '<li><a href="'.$feature['url'].'" target="_blank"><img width="120" class="featuredthumb" src="'.$feature['thumbnail_url'].'" /></a><p><strong><a href="'.$feature['url'].'" target="_blank">'.$feature['title'].'</a></strong><br />By: <i><a href="'.get_option('siteurl'). '/wp-admin/media-upload.php?type=video&tab=viddlervideos&subtab=search&viddlersearchtype=&viddlerstring='.$feature['author'].'&post_id='.$id.'">'.$feature['author'].'</a></i> <br />Published: '.date("F d, Y",$feature['upload_time']).'<br /><i>('.$feature['comment_count'].' comments, '.number_format($feature['view_count']).' views)</i><br /><a href="#" onclick="viddlerAddToPost(\''.$feature['id'].'\',\''.$defaultwidth.'\',\''.$height.'\'); return false;">+ Insert into post</a></p></li>';
 		}
 	} else {
 			$height = $video['height'];
 			
-			$html .= '<li><a href="'.$featuredvideos['video_list']['video']['url'].'" target="_blank"><img width="120" class="featuredthumb" src="'.$featuredvideos['video_list']['video']['thumbnail_url'].'" /></a><p><strong><a href="'.$featuredvideos['video_list']['video']['url'].'" target="_blank">'.$featuredvideos['video_list']['video']['title'].'</a></strong><br />By: <i><a href="'.get_option('siteurl'). '/wp-admin/media-upload.php?type=video&tab=viddlervideos&subtab=search&viddlersearchtype=&viddlerstring='.$featuredvideos['video_list']['video']['author'].'&post_id='.$id.'">'.$featuredvideos['video_list']['video']['author'].'</a></i> <br />Published: '.date("F d, Y",$featuredvideos['video_list']['video']['upload_time']/1000).'<br /><i>('.$featuredvideos['video_list']['video']['comment_count'].' comments, '.number_format($feature['view_count']).' views)</i><br /><a href="#" onclick="viddlerAddToPost(\''.$featuredvideos['video_list']['video']['id'].'\',\''.$defaultwidth.'\',\''.$height.'\'); return false;">+ Insert into post</a></p></li>';
+			$html .= '<li><a href="'.$featuredvideos['video_list']['video']['url'].'" target="_blank"><img width="120" class="featuredthumb" src="'.$featuredvideos['video_list']['video']['thumbnail_url'].'" /></a><p><strong><a href="'.$featuredvideos['video_list']['video']['url'].'" target="_blank">'.$featuredvideos['video_list']['video']['title'].'</a></strong><br />By: <i><a href="'.get_option('siteurl'). '/wp-admin/media-upload.php?type=video&tab=viddlervideos&subtab=search&viddlersearchtype=&viddlerstring='.$featuredvideos['video_list']['video']['author'].'&post_id='.$id.'">'.$featuredvideos['video_list']['video']['author'].'</a></i> <br />Published: '.date("F d, Y",$featuredvideos['video_list']['video']['upload_time']).'<br /><i>('.$featuredvideos['video_list']['video']['comment_count'].' comments, '.number_format($feature['view_count']).' views)</i><br /><a href="#" onclick="viddlerAddToPost(\''.$featuredvideos['video_list']['video']['id'].'\',\''.$defaultwidth.'\',\''.$height.'\'); return false;">+ Insert into post</a></p></li>';
 	}
 	
 		if ($p != 1) $pages .= '<a href="'.get_option('siteurl'). '/wp-admin/media-upload.php?type=video&tab=viddlervideos&subtab=search&viddlersearchtype='.$_GET['viddlersearchtype'].'&viddlerstring='.$_GET['viddlerstring'].'&post_id='.$id.'&p='.($p-1).'">&laquo; Previous</a> | ';
@@ -775,78 +783,40 @@ function media_upload_viddler_search($type,$errors=null,$id=null) {
 /*
 Recording!
 */
-
 function media_upload_viddler_record($type,$errors=null,$id=null) {
-	$pluginurl = get_bloginfo('wpurl').'/wp-content/plugins/the-viddler-wordpress-plugin/';
-	$form_action_url = $pluginurl."viddlergateway.php";
-	
-	include('../wp-content/plugins/the-viddler-wordpress-plugin/phpviddler/phpviddler.php');
-	
-	// New instance of Viddler class.
-	$v = new Viddler_V2('0118093f713643444556524f452f');
-	
-	// Login form
-	$form = '<h3>Record a video using your webcam!</h3>
-	<p>You will need a webcam attached to your computer to record.</p>
-	<form method="get" action="'.get_option('siteurl'). '/wp-admin/media-upload.php">
-	<table class="describe"><tbody>
-		<tr>
-			<th valign="top" scope="row" class="label">
-				<span class="alignleft"><label for="viddlerusername">' . __('Username') . '</label></span>
-				<span class="alignright"><abbr title="required" class="required">*</abbr></span>
-			</th>
-			<td class="field"><input id="viddlerusername" name="viddlerusername" value="'.$_GET['viddlerusername'].'" type="text" /></td>
-		</tr>
-		<tr>
-			<th valign="top" scope="row" class="label">
-				<span class="alignleft"><label for="viddlerpassword">' . __('Password') . '</label></span>
-				<span class="alignright"><abbr title="required" class="required">*</abbr></span>
-			</th>
-			<td class="field"><input id="viddlerpassword" name="viddlerpassword" value="'.$_GET['viddlerpassword'].'" type="password" /></td>
-		</tr>
-		<tr>
-			<td></td>
-			<td>
-				<input type="submit" class="button" value="' . attribute_escape(__(' Submit ')) . '" />
-				<input type="hidden" name="type" value="video" />
-				<input type="hidden" name="tab" value="viddlervideos" />
-				<input type="hidden" name="subtab" value="record" />
-				<input type="hidden" name="post_id" value="'.$id.'" />
-				<input type="hidden" name="pp" value="1" />
-			</td>
-		</tr>
-	</tbody></table></form>';
-	
-	if ($_GET['viddlerusername']) {
-		// Login
-			$sessionid = $v->viddler_users_auth(array('user'=>$_GET['viddlerusername'],'password'=>$_GET['viddlerpassword'],'get_record_token'=>1));
-			// Error
-			if ($sessionid['error']) {
-				$html = '<p style="color:red;">Username and/or password were incorrect.</p>'.$form;
-			} else {
-				// Success
-				$recordtoken = $sessionid['auth']['record_token'];
-				
-				$recorder = '<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000"  codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=8,0,0,0" width="449" height="380"
+  $pluginurl = get_bloginfo('wpurl').'/wp-content/plugins/the-viddler-wordpress-plugin/';
+  $form_action_url = $pluginurl."viddlergateway.php";
+
+  include('phpviddler/phpviddler.php');
+
+  // New instance of Viddler class.
+  $v = new Viddler_V2('0118093f713643444556524f452f');
+
+
+  $sessionid = $v->viddler_users_auth(array('user'=>get_option('viddler_yourusername'),'password'=> get_option('viddler_yourpassword'), 'get_record_token'=>1));
+
+  // Error
+  if ($sessionid['error']) {
+    $html = '<p style="color:red;">Username and/or password were incorrect.</p>'.$form;
+  } else {
+    // Success
+    $recordtoken = $sessionid['auth']['record_token'];
+    
+    $recorder = '<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000"  codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=8,0,0,0" width="449" height="380"
 id="viddler_recorder" align="middle"> <param name="allowScriptAccess" value="always" /> <param name="allowNetworking" value="all" /> <param name="movie" value="http://cdn-static.viddler.com/flash/recorder.swf" /> <param name="quality" value="high" /> <param name="scale" value="noScale"> <param name="bgcolor" value="#000000" /> <param name="flashvars" value="fake=1&recordToken='.$recordtoken.'" /> <embed src="http://cdn-static.viddler.com/flash/recorder.swf" quality="high" scale="noScale" bgcolor="#000000"
 allowScriptAccess="always" allowNetworking="all" width="449" height="380" name="viddler_recorder"
 flashvars="fake=1&recordToken='.$recordtoken.'" align="middle" allowScriptAccess="sameDomain"
 type="application/x-shockwave-flash"  pluginspage="http://www.macromedia.com/go/getflashplayer" /> </object>';
-				
-				
-				$html = '<h3>Record your video!</h3>
-				<p>Easy: Click red record button, click stop when finished, click save to confirm.</p>
-				<div id="viddlerrecorder">'.$recorder.'</div>
-				<input type="hidden" id="sessionid" name="sessionid" value="'.$sessionid['auth']['sessionid'].'" />
-				<input type="hidden" id="viddlergateway" name="viddlergateway" value="'.$form_action_url.'" />';
-			}
+    
+    
+    $html = '<h3>Record your video!</h3>
+    <p>Easy: Click red record button, click stop when finished, click save to confirm.</p>
+    <div id="viddlerrecorder">'.$recorder.'</div>
+    <input type="hidden" id="sessionid" name="sessionid" value="'.$sessionid['auth']['sessionid'].'" />
+    <input type="hidden" id="viddlergateway" name="viddlergateway" value="'.$form_action_url.'" />';
+  }
 			
-	} else {
-		// Just show login form
-		$html = $form;
-	}
-	
-	$post_id = intval($_REQUEST['post_id']);
+	$post_id = intval($id);
 	
 	$callback = "type_form_$type";
 	$callback_url = get_option('siteurl') . "/wp-admin/media-upload.php?type=viddlerlogin&tab=viddlerlogin&post_id=$post_id";
@@ -887,7 +857,7 @@ function viddler_dashboard_content() {
 	$pluginurl = get_bloginfo('wpurl').'/wp-content/plugins/the-viddler-wordpress-plugin/';
 	$form_action_url = $pluginurl."viddlergateway.php";
 	
-	include('../wp-content/plugins/the-viddler-wordpress-plugin/phpviddler/phpviddler.php');
+	include('phpviddler/phpviddler.php');
 	
 	// New instance of Viddler class.
 	$v = new Viddler_V2('0118093f713643444556524f452f');
@@ -899,7 +869,7 @@ function viddler_dashboard_content() {
 			if ($i == 1) {
 				$todaysfeaturedvideo = '<div class="todaysfeaturedvideo"><p><strong>LATEST: <a href="'.$feature['video']['url'].'" target="_blank">'.$feature['video']['title'].'</a></strong><br />By: <a href="http://www.viddler.com/explore/'.$feature['author'].'/"><i>'.$feature['video']['author'].'</i></a> <br /><i>'.$feature['video']['comment_count'].' comments<br /> '.number_format($feature['video']['view_count']).' views</i><br /><a href="post-new.php?text='.urlencode('[viddler id-'.$feature['video']['id'].' h-370 w-437]').'&popupurl='.urlencode($feature['video']['url']).'&popuptitle='.urlencode($feature['video']['title']).'">+ Insert into post</a></p><div id="viddlervideo-'.$feature['video']['id'].'"><a href="#loadvideo" title="Watch this video!" onclick="loadViddlerVideo(\''.$feature['video']['id'].'\',\'simple\',\'280\',\'200\'); return false;"><img width="240" class="featuredthumb" src="'.$feature['video']['thumbnail_url'].'" /></a><br /><a href="#loadvideo" title="Watch this video!" onclick="loadViddlerVideo(\''.$feature['video']['id'].'\',\'simple\',\'280\',\'200\'); return false;"><img style="border: none; position: absolute; top: 70px; left: 15px;" src="'.$pluginurl.'images/play.png" /></a></div></div><div style="clear:both;"></div>'."\n\n";
 			} elseif ($i>1 && $i<=7) {
-				$previousfeaturedvideos .= '<li><a href="'.$feature['video']['url'].'" target="_blank"><img width="120" class="featuredthumb" src="'.$feature['video']['thumbnail_url'].'" /></a><p><strong><a href="'.$feature['video']['url'].'" target="_blank">'.$feature['title'].'</a></strong>By: <i><a href="'.get_option('siteurl'). '/wp-admin/media-upload.php?type=video&tab=viddlervideos&subtab=search&viddlersearchtype=&viddlerstring='.$feature['video']['author'].'&post_id='.$id.'">'.$feature['video']['author'].'</a></i> <br />Published: '.date("F d, Y",$feature['featured_at']/1000).'<br /><i>('.$feature['video']['comment_count'].' comments, '.number_format($feature['video']['view_count']).' views)</i><br /><a href="post-new.php?text='.urlencode('[viddler id-'.$feature['video']['id'].' h-370 w-437]').'&popupurl='.urlencode($feature['url']).'&popuptitle='.urlencode($feature['video']['title']).'">+ Insert into post</a></p></li>';
+				$previousfeaturedvideos .= '<li><a href="'.$feature['video']['url'].'" target="_blank"><img width="120" class="featuredthumb" src="'.$feature['video']['thumbnail_url'].'" /></a><p><strong><a href="'.$feature['video']['url'].'" target="_blank">'.$feature['title'].'</a></strong>By: <i><a href="'.get_option('siteurl'). '/wp-admin/media-upload.php?type=video&tab=viddlervideos&subtab=search&viddlersearchtype=&viddlerstring='.$feature['video']['author'].'&post_id='.$id.'">'.$feature['video']['author'].'</a></i> <br />Published: '.date("F d, Y",$feature['featured_at']).'<br /><i>('.$feature['video']['comment_count'].' comments, '.number_format($feature['video']['view_count']).' views)</i><br /><a href="post-new.php?text='.urlencode('[viddler id-'.$feature['video']['id'].' h-370 w-437]').'&popupurl='.urlencode($feature['url']).'&popuptitle='.urlencode($feature['video']['title']).'">+ Insert into post</a></p></li>';
 			} elseif ($i > 7) {
 				continue;
 			}
@@ -913,7 +883,7 @@ function viddler_dashboard_content() {
 	$callback_url = get_option('siteurl') . "/wp-admin/media-upload.php?type=viddlerlogin&tab=viddlerlogin&post_id=$post_id";
 	
 	echo $todaysfeaturedvideo.'<h3 class="viddlerdashboard">Previous features</h3><ul class="viddlerpreviousfeatures">'.$previousfeaturedvideos.'</ul>
-	<p class="dashboardpoweredby"><a class="poweredby" href="http://viddler.com/" title="Powered by Viddler"><img src="http://cdn-ll-static.viddler.com/wp-plugin/v1/images/pwviddler.png" /></a></p>
+	<p class="dashboardpoweredby"><a class="poweredby" href="http://viddler.com/" title="Powered by Viddler"><img src="http://static.cdn-ec.viddler.com/wp-plugin/v1/images/pwviddler.png" /></a></p>
 	<br class="clear" />';
 exit;
 }
@@ -973,6 +943,9 @@ add_action('admin_head_media_upload_viddler_search', 'viddler_add_jsAdmin');
 //add_action('admin_head_viddler_media_record', 'media_admin_css');
 add_action('admin_head_media_upload_viddler_record', 'wp25mediaCSS');
 add_action('admin_head_media_upload_viddler_record', 'viddler_add_jsAdmin');
+// Upload
+add_action('admin_head_media_upload_viddler_upload', 'wp25mediaCSS');
+add_action('admin_head_media_upload_viddler_upload', 'viddler_add_jsAdmin');
 
 // Add Viddler Videos tab
 add_action('media_upload_tabs','add_viddlerTab');
@@ -1019,5 +992,8 @@ if ($viddler_embed_swapper == 'true') {
 if ($viddler_default_link == 'true') {
 	add_action('comment_form', 'viddler_recordlink');
 }
+
+//Viddler Shortcode Support
+include 'viddler-shortcode.php';
 
 ?>

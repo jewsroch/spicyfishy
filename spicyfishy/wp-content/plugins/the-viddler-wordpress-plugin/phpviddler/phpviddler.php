@@ -44,7 +44,8 @@ class Viddler_V2 {
     
     // Methods that require HTTPS
     $secure_methods = array(
-      'viddler.users.auth'
+      'viddler.users.auth',
+      'viddler.users.register'
     );
     
     // Methods that require POST
@@ -52,10 +53,7 @@ class Viddler_V2 {
       'viddler.encoding.cancel',
       'viddler.encoding.encode',
       'viddler.encoding.setOptions',
-      'viddler.groups.addVideo',
-      'viddler.groups.join',
-      'viddler.groups.leave',
-      'viddler.groups.removeVideo',
+      'viddler.encoding.setSettings',
       'viddler.playlists.addVideo',
       'viddler.playlists.create',
       'viddler.playlists.delete',
@@ -65,11 +63,7 @@ class Viddler_V2 {
       'viddler.users.setSettings',
       'viddler.users.setProfile',
       'viddler.users.setOptions',
-      'viddler.users.acceptFriendRequest',
-      'viddler.users.ignoreFriendRequest',
-      'viddler.users.sendFriendRequest',
-      'viddler.users.subscribe',
-      'viddler.users.unsubscribe',
+      'viddler.users.register',
       'viddler.videos.setDetails',
       'viddler.videos.setPermalink',
       'viddler.videos.comments.add',
@@ -83,7 +77,12 @@ class Viddler_V2 {
       'viddler.videos.setThumbnail',
       'viddler.videos.setDetails',
       'viddler.videos.enableAds',
-      'viddler.videos.disableAds'
+      'viddler.videos.disableAds',
+      'viddler.resellers.removeSubaccounts',
+      'viddler.playlists.addVideo',
+      'viddler.users.setPlayerBranding',
+      'viddler.users.setProfile',
+      'viddler.users.setSettings'
     );
     
     // Methods that require Binary transfer
@@ -134,7 +133,6 @@ class Viddler_V2 {
     $ch = curl_init();
     curl_setopt ($ch, CURLOPT_URL, $url);
     curl_setopt ($ch, CURLOPT_RETURNTRANSFER, 1);
-    curl_setopt ($ch, CURLOPT_CONNECTTIMEOUT, 1);
     curl_setopt ($ch, CURLOPT_HEADER, 0);
     curl_setopt ($ch, CURLOPT_TIMEOUT, 0);
     curl_setopt ($ch, CURLOPT_SSL_VERIFYPEER, FALSE);

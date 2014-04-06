@@ -12,7 +12,7 @@ Tags: flexible, white, gray
 
 .skin-ribbons dl.slidedeck {  margin: 0 auto 25px; }
 
-.skin-ribbons dl.slidedeck dd {
+.skin-ribbons dl.slidedeck > dd {
     padding: 10px;
     background: #e2e2e2;
     background: -moz-linear-gradient(top, #ffffff, #e2e2e2);
@@ -21,7 +21,7 @@ Tags: flexible, white, gray
 	margin-top: 8px !important;
 }
 
-.skin-ribbons dl.slidedeck dt {
+.skin-ribbons dl.slidedeck > dt {
     height: 41px;
 	line-height: 41px;
 	cursor: pointer;
@@ -35,32 +35,34 @@ Tags: flexible, white, gray
 	color: #fff !important;
     padding-bottom: 0 !important;
 }
-.skin-ribbons dl.slidedeck dt:hover { background-position: 0 -153px; }
-.skin-ribbons dl.slidedeck dt.active {
+.skin-ribbons dl.slidedeck > dt:hover { background-position: 0 -153px; }
+.skin-ribbons dl.slidedeck > dt.active {
     padding-bottom: 7px !important;
     background-position: 0 -48px;
 }
-.skin-ribbons dl.slidedeck dt.active:hover { background-position: 0 0; }
-.skin-ribbons dl.slidedeck dt.next {
+.skin-ribbons dl.slidedeck > dt.active:hover { background-position: 0 0; }
+.skin-ribbons dl.slidedeck > dt.next {
 	padding-top: 7px !important;
 	background-position: 0 -97px;
 	margin-left: -28px !important;
 }
-.skin-ribbons dl.slidedeck dt.next:hover { background-position: 0 -146px; }
+.skin-ribbons dl.slidedeck > dt.next:hover { background-position: 0 -146px; }
 
-.skin-ribbons dl.slidedeck dt .index {
+.skin-ribbons dl.slidedeck > dt .index {
 	line-height: 41px;
 	font-size: 14px;
 	font-weight: bold;
 	color: #fff !important;
     margin-left: 4px;
 }
-.skin-ribbons dl.slidedeck dt.active .index { margin-bottom: 6px; }
-.skin-ribbons dl.slidedeck dt:hover .index { color: #fecb00 !important; }
+.skin-ribbons dl.slidedeck > dt.active .index { margin-bottom: 6px; }
+.skin-ribbons dl.slidedeck > dt:hover .index { color: #fecb00 !important; }
 .skin-ribbons dl.slidedeck .activeCorner { display:none; }
 
-.skin-ribbons dl.slidedeck dd.slide ul.slidesVertical { text-indent: 0; }
-.skin-ribbons dl.slidedeck dd.slide ul.slidesVertical li {
+.skin-ribbons dl.slidedeck dd.slide ul.slidesVertical,
+.skin-ribbons dl.slidedeck dd.slide dl.slidesVertical { text-indent: 0; }
+.skin-ribbons dl.slidedeck dd.slide ul.slidesVertical li,
+.skin-ribbons dl.slidedeck dd.slide dl.slidesVertical dd {
     overflow: hidden;
     padding: 10px !important;
     margin: 0 !important;
@@ -116,7 +118,6 @@ Tags: flexible, white, gray
     outline: none;
 	text-decoration: none;
     border: 1px solid #ccc;
-    filter: Alpha(opacity=50);
     opacity: 0.5;
     -moz-opacity: 0.5;
     -webkit-opacity: 0.5;
@@ -130,5 +131,4 @@ Tags: flexible, white, gray
     opacity: 0.75;
     -moz-opacity: 0.75;
     -webkit-opacity: 0.75;
-    filter: Alpha(opacity=75); 
 }

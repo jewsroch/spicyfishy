@@ -2,7 +2,7 @@
 /**
  * Overview list of SlideDecks
  * 
- * SlideDeck for WordPress 1.4.2 - 2011-10-17
+ * SlideDeck for WordPress 1.4.8 - 2011-12-14
  * Copyright 2011 digital-telepathy  (email : support@digital-telepathy.com)
  * 
  * This program is free software; you can redistribute it and/or modify
@@ -23,7 +23,7 @@
  * @subpackage SlideDeck for WordPress
  * 
  * @author digital-telepathy
- * @version 1.4.2
+ * @version 1.4.8
  * 
  * @uses slidedeck_action()
  * @uses slidedeck_show_message()
@@ -31,11 +31,15 @@
  */
 ?>
 <div class="slidedeck-wrapper">
+    
+    <?php include('_notification_bar.php'); ?>
+    
     <div id="callout-sidebar">
         <div class="editPageUpgradeCallout overview">
-            <h4>SlideDeck PRO</h4>
+            <h4>SlideDeck 2</h4>
             <div class="inner">
-                <p>Upgrade to PRO to remove the branding &amp; unlock features like Vertical Slides, Background Images &amp; Smart SlideDecks from any RSS feed.</p>
+                <h5>New Everything!</h5>
+                <p>We've taken the content slider to the next level with SlideDeck&nbsp;2. <strong><em>It's all new</em></strong> from the ground up, a WordPress slider like nothing else before it.</p>
                 <a href="<?php echo slidedeck_action( '/upgrade' ); ?>&variation=SlideDeck+Overview+CTA">Upgrade to Pro</a>
             </div>
         </div>

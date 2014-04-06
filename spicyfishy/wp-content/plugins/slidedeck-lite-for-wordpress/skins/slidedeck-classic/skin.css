@@ -21,7 +21,7 @@ Tags: flexible, white, black, multi-color
 .skin-slidedeck-classic {
     position: relative;
     overflow: hidden;
-    padding: 11px 8px 24px 11px;
+    padding: 11px 8px 11px 11px;
     background: url('back.png') 0 0 #d7d7d7;
     border: 14px solid #fff;
     box-shadow: 0 0 5px rgba(0,0,0,0.2);
@@ -170,7 +170,13 @@ Tags: flexible, white, black, multi-color
  * eliminate the padding definition to have your vertical slide content line
  * up flush against the containing slide content area edges.
  */
-.skin-slidedeck-classic dl.slidedeck dd.slide ul.slidesVertical > li {
+.skin-slidedeck-classic dl.slidedeck dd.slide ul.slidesVertical,
+.skin-slidedeck-classic dl.slidedeck dd.slide dl.slidesVertical {
+	margin:0;
+	padding:0;
+}
+.skin-slidedeck-classic dl.slidedeck dd.slide ul.slidesVertical > li,
+.skin-slidedeck-classic dl.slidedeck dd.slide dl.slidesVertical > dd {
     overflow: hidden;
     padding: 10px 15px;
 }
@@ -250,8 +256,6 @@ Tags: flexible, white, black, multi-color
     -moz-opacity: 0.5;
     -webkit-opacity: 0.5;
     -khtml-opacity: 0.5;
-    -ms-filter: "Alpha(opacity=50)";
-    filter: Alpha(opacity=50);
     border-radius: 3px;
     -moz-border-radius: 3px;
     -webkit-border-radius: 3px;
@@ -267,8 +271,6 @@ Tags: flexible, white, black, multi-color
     -moz-opacity: 0.75;
     -webkit-opacity: 0.75;
     -khtml-opacity: 0.75;
-    -ms-filter: "Alpha(opacity=75)";
-    filter: Alpha(opacity=75); 
 }
 
 
@@ -287,6 +289,8 @@ Tags: flexible, white, black, multi-color
     -webkit-transform-origin: -7px 0;
     -moz-transform: rotate(90deg);
     -moz-transform-origin: -7px 0;
+    -ms-transform: rotate(90deg);
+    -ms-transform-origin: -7px 0;
     -o-transform: rotate(90deg);
     -o-transform-origin: -7px 0;
 }

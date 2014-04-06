@@ -1,15 +1,15 @@
 (function($){
-	function LightNavigation(el){
-		var el = $(el);
-		var deck = el.find('.slidedeck').slidedeck();
-        var slidedeck = el.find('.slidedeck');
-		var prev = el.find('.sd-node-previous');
-		var next = el.find('.sd-node-next');
-		var primaryNavs = el.find('.sd-node-nav-primary a.sd-node-nav-link');
+	SlideDeckSkin['light'] = function(slidedeck){
+        var slidedeck = $(slidedeck);
+        var slidedeckFrame = slidedeck.closest('.slidedeck_frame');
+        var deck = slidedeck.slidedeck();
+		var prev = slidedeckFrame.find('.sd-node-previous');
+		var next = slidedeckFrame.find('.sd-node-next');
+		var primaryNavs = slidedeckFrame.find('.sd-node-nav-primary a.sd-node-nav-link');
 		
         var sizeDeckFrame = function(){
             if( slidedeck.width() && slidedeck.height() ){
-                el.css({
+                slidedeckFrame.css({
                     width: slidedeck.width()+'px',
                     height: slidedeck.height()+'px'
                 });
@@ -57,11 +57,12 @@
 		};
 		var oldGoTo = deck.goTo;
 		deck.goTo = function(ind, params){
+		    ind = parseInt(ind);
 			oldGoTo(ind, params);
 			updateActive(Math.min(deck.slides.length,Math.max(1,ind)));
 		};
 		
-		el.find('.sd-node-nav-link').bind('click', function(event){
+		slidedeckFrame.find('.sd-node-nav-link').bind('click', function(event){
 			event.preventDefault();
 
 			var action = this.href.split('#')[1];
@@ -85,7 +86,7 @@
         sizeDeckFrame();
 		
         deck.loaded(function(){
-            for(var z=0, slides=el.find('dd.slide .sd-node-container'); z<slides.length; z++){
+            for(var z=0, slides=slidedeckFrame.find('dd.slide .sd-node-container'); z<slides.length; z++){
                 var thisSlide = $(slides[z]);
                 var slideWidth = thisSlide.innerWidth();
                 var slideImage = thisSlide.find('img');
@@ -110,7 +111,7 @@
         });
 		
         $(window).load(function(){
-            el.find('dd.slide .sd-node-container .sd-node-image-child img').each(function(){
+            slidedeckFrame.find('dd.slide .sd-node-container .sd-node-image-child img').each(function(){
                 $(this).attr('width', this.width).css({
                     top: (262 - this.height) + "px"
                 });
@@ -119,14 +120,12 @@
 		
 		return true;
 	};
-	
-	$(document).ready(function(){
-		for(var i=0, decks=$('.slidedeck_frame.skin-light'); i<decks.length; i++){
-			var thisDeck = decks[i];
-		    
-			if(typeof(thisDeck.SlideDeck_skinLightNavigation) == 'undefined'){
-				thisDeck.SlideDeck_skinLightNavigation = LightNavigation(thisDeck);
-			}
-		}
-	});
+    
+    $(document).ready(function(){
+        $('.skin-light .slidedeck').each(function(){
+            if(typeof($.data(this, 'skin-light')) == 'undefined'){
+                $.data(this, 'skin-light', new SlideDeckSkin['light'](this));
+            }
+        });
+    });
 })(jQuery);

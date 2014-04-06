@@ -33,9 +33,11 @@ return;
 function recordDone(u,uvn,vid) {
 	sessionid = jQuery('#sessionid').val();
 	
-	var html = '[viddler id-'+vid+' h-282 w-320]'+"\n";
-  	
-  	var gw = jQuery('#viddlergateway').val();
+	// Legacy Viddler var html = '[viddler id-'+vid+' h-282 w-320]'+"\n";
+  
+  var html = '[viddler id='+vid+' h=282 w=320]'+"\n"; // To mimic Wordpress.com shortcodes
+  
+  var gw = jQuery('#viddlergateway').val();
 	var m = 'viddler.videos.setDetails';
 	var s = 'sessionid='+sessionid+'&video_id='+vid;
 	
@@ -59,13 +61,15 @@ function recordDone(u,uvn,vid) {
 		viddlerAddToPost(vid,'320','282');
 }
 
-function viddlerAddToPost(vid,w,h) {
+function viddlerAddToPost(vid,w,h,sk) {
 	
 	// Determine w/h
 	if (!w) w = 437;
 	if (!h) h = 370;
 	
-	html = '[viddler id-'+vid+' h-'+h+' w-'+w+']';
+	// Legacy Viddler html = '[viddler id-'+vid+' h-'+h+' w-'+w+']';
+	sk = (sk != '') ? ' secret=' + sk : '';
+	html = '[viddler id=' + vid + ' h=' + h + ' w=' + w + sk + ']'; // Mimic Wordpress.com
 	var win = window.opener ? window.opener : window.dialogArguments;
 	if ( !win )
 		win = top;

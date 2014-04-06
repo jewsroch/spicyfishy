@@ -1,0 +1,100 @@
+#uploaded-videos-listing-container {
+	margin-top: 20px;
+}
+.svi {
+  height: 56px;
+	width: 525px;
+  margin-bottom: 15px;
+  padding-top: 1px; }
+  .svi h4 {
+    font-weight: bold;
+    margin: 0.4em 0 0.4em 0; }
+  .svi .vt-thumbnail {
+    float: left;
+    width: 75px;
+    height: 56px;
+    margin-right: 15px; }
+
+  .svi h4 {
+    font-weight: bold;
+    margin: 0.4em 0 0.4em 0; }
+  .svi .vt-thumbnail {
+    float: left;
+    width: 75px;
+    height: 56px;
+    margin-right: 15px; }
+
+
+
+.svi-progress {
+  position: relative; }
+  .svi-progress .svi-icon {
+    width: 77px;
+    height: 58px;
+    background: url("../images/upload-icon.gif");
+    float: left;
+    margin-right: 15px; }
+  .svi-progress.svi-encode .svi-icon {
+    background: url("../images/encode-icon.gif"); }
+  .svi-progress .rjust {
+		float: right }
+  .svi-progress .ljust {
+    float: left; }
+    .svi-progress .ljust h4 {
+      color: #333333;
+      margin-bottom: 0; }
+    .svi-progress .ljust span {
+      font-size: 0.9em;
+      color: #777777; }
+  .svi-progress .progress-bar {
+    vertical-align: top; }
+    .svi-progress .progress-bar, .svi-progress .progress-bar .progress-bar-inner {
+      height: 10px; }
+  .svi-progress ul {
+    border-bottom: 0;
+    position: relative;
+    margin-top: 45px; }
+
+.progress-bar {
+vertical-align:auto;
+background:#f7f7f7;
+background-image:linear-gradient(top,#dddddd0%,#f7f7f7100%);
+border:1px #444 solid;
+position:relative;
+overflow:hidden;
+border-radius:2px;
+width: 440px;
+bottom: 11px;
+left: 92px;
+clear: both;
+}
+
+.progress-bar,.progress-bar .progress-bar-inner {
+height:16.2px;
+}
+
+.progress-bar .progress-bar-inner {
+border-radius:1px;
+background:#444;
+background-image:linear-gradient(top,#dddddd0%,#9191914%,#44444450%);
+border-right:1px #444 solid;
+}
+
+.progress-bar .progress-bar-label {
+position:absolute;
+top:0;
+left:5px;
+color:#fff;
+text-shadow:1px 1px 1px #000;
+line-height:16.2px;
+}
+
+.progress-bar.animated {
+ackground-size:inherit;
+background:url(//static5.cdn-ec.viddler.com/rails/assets/yourvideos/animated-progress-e8613a399cef842b7bdebb62b39c4805.gif)!important;
+}
+
+.progress-bar.transparent {
+filter:progid:DXImageTransform.Microsoft.Alpha(Opacity=40);
+opacity:0.4;
+}

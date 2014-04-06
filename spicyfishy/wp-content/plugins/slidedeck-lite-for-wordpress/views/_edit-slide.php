@@ -2,7 +2,7 @@
 /**
  * Individual slide markup
  * 
- * SlideDeck for WordPress 1.4.5 - 2011-11-18
+ * SlideDeck for WordPress 1.4.8 - 2011-12-14
  * Copyright (c) 2011 digital-telepathy (http://www.dtelepathy.com)
  * 
  * This program is free software; you can redistribute it and/or modify
@@ -23,7 +23,7 @@
  * @subpackage SlideDeck for WordPress
  * 
  * @author digital-telepathy
- * @version 1.4.5
+ * @version 1.4.8
  * 
  * @uses slidedeck_get_option()
  * @uses slidedeck_dir()
@@ -43,8 +43,6 @@
 		<?php endif; ?>
         
 		<div class="add-delete-controls">
-            <a class="button slide-convert-vertical slide-toggle-vertical disabled" title="Available in Pro version only">Convert to Vertical Slide</a>
-
 			<a href="#<?php echo $count; ?>" class="slide-delete">Delete Slide</a>
 		</div>
         
@@ -84,15 +82,6 @@
                     ?>
 				<?php endif; ?>
 			</li>
-                 
-			<li class="slide-background-url">
-				<label class="disabled">Slide Background Image URL:</label>
-				<input type="text" name="slidedeck_options[slide_backgrounds][]" readonly="readonly" value="" size="30" maxlength="255" />
-                
-                <a href="#" class="button disabled" title="Add a Background Image" onclick="return false;">Upload/Set</a>
-                
-                <em><strong>Beta Feature</strong> - <strong>NEW!</strong> Now upload images using the media library!</em>
-            </li>
                                     
 		</ol>
         

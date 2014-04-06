@@ -11,13 +11,13 @@
  * @global    object    $wpdb
  * 
  * @author digital-telepathy
- * @version 1.4.5
+ * @version 1.4.8
  */
 /*
 Plugin Name: SlideDeck for WordPress - Slider Widget
 Plugin URI: http://www.slidedeck.com/wordpress
 Description: Create SlideDecks on your WordPress blogging platform and insert them into templates and posts. Get started creating SlideDecks from the new SlideDeck menu in the left hand navigation. <a href="http://www.slidedeck.com/upgrade-to-pro/?utm_source=LiteUser&utm_medium=Link&utm_campaign=WPplugin" target="_blank">Upgrade to SlideDeck Pro!</a> | <a href="admin.php?page=slidedeck.php">Manage SlideDecks</a> | <a href="admin.php?page=slidedeck.php/slidedeck_add_new">Add New SlideDeck</a> | <a href="admin.php?page=slidedeck.php/slidedeck_dynamic">Add New Smart SlideDeck</a>
-Version: 1.4.5
+Version: 1.4.8
 Author: digital-telepathy
 Author URI: http://www.dtelepathy.com
 License: GPL2
@@ -97,7 +97,7 @@ define( 'SLIDEDECKS_SLIDES_TABLE',                  $wpdb->prefix . "slidedecks_
 
 define( 'SLIDEDECK_POST_TYPE',                      'slidedeck' );
 define( 'SLIDEDECK_SLIDE_POST_TYPE',                'slidedeck_slide' );
-define( 'SLIDEDECK_VERSION',                        '1.4.5' );
+define( 'SLIDEDECK_VERSION',                        '1.4.8' );
 define( 'SLIDEDECK_TITLE_LENGTH_WITH_IMAGE',        45 ); // characters
 define( 'SLIDEDECK_TITLE_LENGTH_WITHOUT_IMAGE',     60 ); // characters
 define( 'SLIDEDECK_EXCERPT_LENGTH_WITH_IMAGE',      30 ); // words
@@ -109,11 +109,13 @@ define( 'SLIDEDECK_IS_AJAX_REQUEST',                ( !empty( $_SERVER['HTTP_X_R
 define( 'SLIDEDECK_DEFAULT_SKIN',                   'slidedeck-classic' );
 
 global $slidedeck_global_options;
-$slidedeck_global_options = get_option( 'slidedeck_global_options', array( 
+$slidedeck_global_options_defaults = array( 
     'disable_wpautop' => false,
     'enable_ssl_check' => false,
     'dont_enqueue_scrollwheel_library' => false
-) );
+);
+$slidedeck_global_options = get_option( 'slidedeck_global_options', $slidedeck_global_options_defaults );
+$slidedeck_global_options = array_merge( $slidedeck_global_options_defaults, $slidedeck_global_options );
 
 define( 'SLIDEDECK_USER_HASH', sha1( $_SERVER['HTTP_USER_AGENT'] . $_SERVER['REMOTE_ADDR'] ) );
 define( 'KMAPI_KEY', "d1b65dbd653f5c7f63692c5a3a17a7ad5d8d5d4d" );
@@ -265,7 +267,7 @@ function slidedeck_admin_init() {
                 $variation = urlencode( $_GET['variation'] );
             }
             wp_remote_fopen( "http://trk.kissmetrics.com/e?_k=" . KMAPI_KEY . "&_n=Upgrade+to+SlideDeck+Pro&_p=" . SLIDEDECK_USER_HASH . '&variation=' . $variation );
-            wp_redirect( "http://www.slidedeck.com/upgrade-to-pro-wp/?utm_source=LiteUser&utm_medium=Link&utm_campaign=WPplugin" );
+            wp_redirect( "http://www.slidedeck.com/upgrade-to-pro-wp/?utm_source=" . $_SERVER['HTTP_HOST'] . "&utm_medium=in_app&utm_campaign=LiteUser" );
         }
         wp_register_style( 'slidedeck-admin-css', slidedeck_url( '/slidedeck-admin.css' ), array(), SLIDEDECK_VERSION, "screen" );
         wp_register_script( 'slidedeck-admin-js', slidedeck_url( '/slidedeck-admin.js' ), array( 'jquery', 'media-upload' ), SLIDEDECK_VERSION, !SLIDEDECK_USE_OLD_TINYMCE_EDITOR );
@@ -496,7 +498,7 @@ function slidedeck_get_skins( $type = 'all' ) {
     foreach ( (array) array_values( $all_skin_files ) as $skin_file ) {
         if ( is_readable( $skin_file ) ) {
             $skin_meta = slidedeck_skin_meta( $skin_file );
-            if ( $type  == 'all' || $skin_meta['meta']['Skin Type'] == $type ) {
+            if ( $type  == 'all' || ( isset( $skin_meta['meta']['Skin Type'] ) && $skin_meta['meta']['Skin Type'] == $type ) ) {
                 $skins[$skin_meta['slug']] = $skin_meta;
             }
         }
@@ -554,7 +556,7 @@ function slidedeck_skin_meta( $skin_file ) {
             $skin_meta[trim( $key_val[0] )] = trim( $key_val[1] );
         }
         
-        $skin_url = site_url( str_replace( ABSPATH, "", $skin_folder ) );
+        $skin_url = WP_PLUGIN_URL . str_replace( WP_PLUGIN_DIR, "", $skin_folder );
         
         $skin = array(
             'url' => $skin_url . "/skin.css",
@@ -611,7 +613,7 @@ function slidedeck_get_skin_css( $skin ) {
     
     $skin_css_tags = '<link rel="stylesheet" type="text/css" href="' . $skin['url'] . '?v=' . $version . '" media="screen" />';
     if( isset( $skin['ie_url'] ) && !empty( $skin['ie_url'] ) ) {
-        $skin_css_tags .= '<!--[if lte IE 8]><link rel="stylesheet" type="text/css" href="' . $skin['ie_url'] . '?v=' . $version . '" media="screen" /><![endif]-->';
+        $skin_css_tags .= '<!--[if IE]><link rel="stylesheet" type="text/css" href="' . $skin['ie_url'] . '?v=' . $version . '" media="screen" /><![endif]-->';
     }
     if( isset( $skin['ie7_url'] ) && !empty( $skin['ie7_url'] ) ) {
         $skin_css_tags .= '<!--[if IE 7]><link rel="stylesheet" type="text/css" href="' . $skin['ie7_url'] . '?v=' . $version . '" media="screen" /><![endif]-->';
@@ -1157,7 +1159,7 @@ function slidedeck_edit() {
             }
 
         default:
-            global $slidedeck_global_options;
+            global $slidedeck_global_options, $slidedeck_global_options_defaults;
             
             // Accommodate for ordering parameters passed in the URL
             $orderby = 'title';
@@ -1187,11 +1189,8 @@ function slidedeck_edit() {
 
                 update_option( 'slidedeck_global_options', $options );
                 
-                $slidedeck_global_options = get_option( 'slidedeck_global_options', array( 
-                    'disable_wpautop' => false,
-                    'enable_ssl_check' => false,
-                    'dont_enqueue_scrollwheel_library' => false
-                ) );
+                $slidedeck_global_options = get_option( 'slidedeck_global_options', $slidedeck_global_options_defaults );
+                $slidedeck_global_options = array_merge( $slidedeck_global_options_defaults, $slidedeck_global_options );
             }
             
             // Render the overview list
@@ -1696,10 +1695,10 @@ function slidedeck_process_template( $slidedeck_id, $styles = array( 'width' => 
         $image_skin = false;
         
         $skin = slidedeck_get_skin( ( isset( $slidedeck['skin'] ) && !empty( $slidedeck['skin'] ) ) ? $slidedeck['skin'] : 'default' );
-        if( $skin['meta']['Skin Type'] == "fixed" ) {
+        if( isset( $skin['meta']['Skin Type'] ) && $skin['meta']['Skin Type'] == "fixed" ) {
             $styles['height'] = $skin['meta']['Skin Height'] . "px";
         }
-        if( $skin['meta']['Skin Slide Type'] == "image" ) {
+        if( isset( $skin['meta']['Skin Slide Type'] ) && $skin['meta']['Skin Slide Type'] == "image" ) {
             $image_skin = true;
         }
         $skin_image_width = isset( $skin['meta']['Skin Image Width'] ) ? $skin['meta']['Skin Image Width'] : '270px';
@@ -2036,7 +2035,7 @@ function slidedeck_dynamic_template_content( $slidedeck, $slides ) {
     foreach ( (array) $slides as $slide ) {
         $buffer = 0;
         $title_cap = ( 37 + ( ( 5 - $slidedeck['dynamic_options']['total'] ) * 10 ) );
-        $title_substr = substr( $slide['title'], 0, $title_cap ) . ( strlen( $slide['title'] ) < $title_cap ? '' : '&hellip;' );
+        $title_substr = mb_substr( $slide['title'], 0, $title_cap ) . ( mb_strlen( $slide['title'] ) < $title_cap ? '' : '&hellip;' );
         
         $template_str.= '<li><a href="#' . $i . '" class="sd-node-nav-link"><span class="sd-node-nav-link-label-date">' . date_i18n( 'M j', $slide['timestamp'] ) . '</span><span class="sd-node-nav-link-label-title">' . $title_substr . '</span></a></li>';
         $i++;
@@ -2321,6 +2320,7 @@ function slidedeck_register_post_types() {
  * Creates a multi-instance widget for users of WordPress 2.8+ to deploy SlideDeck instances
  * in widget areas on a user's WordPress website.
  */
+global $wp_version;
 if( version_compare( $wp_version, '2.8', '>=' ) ) {
     class SlideDeckWidget extends WP_Widget {
         

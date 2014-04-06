@@ -1,5 +1,5 @@
 /**
- * SlideDeck for WordPress 1.4.1 - 2011-03-30
+ * SlideDeck for WordPress 1.4.8 - 2011-12-14
  * Copyright 2011 digital-telepathy  (email : support@digital-telepathy.com)
  * 
  * This program is free software; you can redistribute it and/or modify
@@ -25,7 +25,7 @@
  * @subpackage SlideDeck for WordPress
  * 
  * @author digital-telepathy
- * @version 1.4.5
+ * @version 1.4.8
  */
 
 .slidedeck-wrapper { clear: both; }
@@ -179,9 +179,9 @@ ol.formRows li textarea { width: 99%; }
 	-moz-border-radius: 0;
 	-webkit-border-radius: 0;
 	border-radius: 0;
-	color: #fff;
+	color: #fff !important;
 	text-shadow: none;
-    cursor: pointer;
+    cursor: pointer !important;
 }
 .vertical-editor-area h3.closed {
 	margin-bottom: 4px;
@@ -233,6 +233,7 @@ ol.formRows li textarea { width: 99%; }
 #slidedeck_update_form .has-right-sidebar .inner-sidebar,
 #dynamic_slidedeck_form .has-right-sidebar .inner-sidebar {
     width: 281px;
+    float: right;
 }
 .inner-sidebar .postbox .inside {
 	position: relative;
@@ -325,7 +326,7 @@ th.manage-column a.order.desc { background-image: url('images/order_desc.png'); 
 #slidedeck-options .inside a.disabled:focus {
 	background: url('../../../wp-admin/images/white-grad.png') left top #f2f2f2 !important;
 	cursor: default;
-    line-height: 14px;
+    line-height: 24px;
 }
 
 .callout-button { margin-right: 0; }
@@ -622,8 +623,12 @@ a.navigation-type.disabled img, a.navigation-type.disabled:hover img { border-co
 .editPageUpgradeCallout.overview{
     margin-left: 10px;
     margin-right: 10px;
+    position: relative;
+    overflow: hidden;
 }
 .editPageUpgradeCallout h4{
+    position: relative;
+    z-index: 2;
     margin: 0;
     padding: 45px 0 0;
     height: 0;
@@ -638,10 +643,16 @@ a.navigation-type.disabled img, a.navigation-type.disabled:hover img { border-co
     -moz-border-radius-topleft: 5px;
     border-top-right-radius: 5px;
     border-top-left-radius: 5px;
+    -webkit-box-shadow: 0 2px 2px #989ca1;
+    -moz-box-shadow: 0 2px 2px #989ca1;
+    box-shadow: 0 2px 2px #989ca1;
 }
-.editPageUpgradeCallout .inner{
+.editPageUpgradeCallout .inner {
+    position: relative;
+    z-index: 1;
+    background: #d7dde4;
     padding-bottom: 10px;
-    border: solid 1px #53213e;
+    border: solid 1px #bfbfbf;
     -webkit-border-bottom-right-radius: 5px;
     -webkit-border-bottom-left-radius: 5px;
     -moz-border-radius-bottomright: 5px;
@@ -649,12 +660,22 @@ a.navigation-type.disabled img, a.navigation-type.disabled:hover img { border-co
     border-bottom-right-radius: 5px;
     border-bottom-left-radius: 5px;
 }
-.editPageUpgradeCallout .inner p{
+.editPageUpgradeCallout .inner h5 {
+    padding-top: 15px;
+    margin: 0 15px;
+    font: bold 18px/22px sans-serif;
+    text-align: center;
+}
+#slidedeck_form .inner-sidebar .editPageUpgradeCallout .inner p,
+#dynamic_slidedeck_form .inner-sidebar .editPageUpgradeCallout .inner p,
+#callout-sidebar .editPageUpgradeCallout .inner p {
     margin: 0 !important;
     padding: 10px;
-    font-size: 13px;
     line-height: 20px;
+    font: normal 13px/20px sans-serif;
+    color: #333;
 }
+.editPageUpgradeCallout .inner p.align-center { text-align: center; }
 .editPageUpgradeCallout a,
 .editPageUpgradeCallout a:link,
 .editPageUpgradeCallout a:visited,
@@ -664,15 +685,15 @@ a.navigation-type.disabled img, a.navigation-type.disabled:hover img { border-co
     display: block;
     overflow: hidden;
     height: 0;
-    padding: 27px 0 0;
-    width: 145px;
+    padding: 42px 0 0;
+    width: 198px;
     margin: 0 auto 10px;
     background: url('images/btn_upgrade.png') no-repeat 0 0;
 }
 .editPageUpgradeCallout a:hover,
-.upgradeModal a:hover{ background-position: 0 -27px; }
+.upgradeModal a:hover{ background-position: 0 -42px; }
 .editPageUpgradeCallout a:active,
-.upgradeModal a:active{ background-position: 0 -54px; }
+.upgradeModal a:active{ background-position: 0 -84px; }
 
 .upgrade-pro{
 	width: 300px;
@@ -714,10 +735,6 @@ a.navigation-type.disabled img, a.navigation-type.disabled:hover img { border-co
 	padding-bottom: 15px;
 	margin-left: 7px;
     text-align: center;
-}
-
-#callout-sidebar a.button{
-	padding: 5px 10px;
 }
 
 #callout-sidebar a.button .inner{
@@ -899,4 +916,33 @@ a.navigation-type.disabled img, a.navigation-type.disabled:hover img { border-co
 }
 .upgradeModal{
     width: 450px;
+}
+/* SlideDeck Notification Bar */
+#slidedeck-final-update-notification {
+    display: block;
+    background: #87196c;
+    padding: 10px 20px;
+    font-size: 13px;
+    color: #fff;
+    font-family: sans-serif;
+    border-radius: 3px;
+    border: 1px solid #a82889;
+    margin: 10px;
+}
+#slidedeck-final-update-notification strong { font-weight: bold; }
+#slidedeck-final-update-notification a {
+    color: #5d114a;
+    background-color: #fff;
+    padding: 1px 5px;
+    margin: 0;
+    text-decoration: none;
+}
+#slidedeck-final-update-notification a:hover,
+#slidedeck-final-update-notification a:active {
+    background-color: #ffe8f9;
+}
+
+/*Hiding Full Screen Edit*/
+#slidedeck_form a.mce_fullscreen {
+    display: none;
 }

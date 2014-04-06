@@ -27,11 +27,11 @@ Tags: fixed, multi-color
     margin: 0 !important;
     padding: 0 !important;
 }
-.skin-stitch dl.slidedeck dd {
+.skin-stitch dl.slidedeck > dd {
     padding: 10px 30px;
     background: url('slide.png') top right no-repeat #fff;
 }
-.skin-stitch dl.slidedeck dt {
+.skin-stitch dl.slidedeck > dt {
     position: relative;
     cursor: pointer;
     height: 60px !important;
@@ -45,7 +45,7 @@ Tags: fixed, multi-color
     padding: 0 40px 0 5px !important;
     width: 347px !important;
 }
-.skin-stitch dl.slidedeck dt .index {
+.skin-stitch dl.slidedeck > dt .index {
     font-size: 14px !important;
     font-weight: bold !important;
     line-height: 18px;
@@ -80,8 +80,10 @@ Tags: fixed, multi-color
 .skin-stitch dl.slidedeck .activeCorner.spine_9 { background-position: 0 -128px; }
 .skin-stitch dl.slidedeck .activeCorner.spine_10 { background-position: 0 -144px; }
 
-.skin-stitch dl.slidedeck dd.slide ul.slidesVertical { text-indent: 0; }
-.skin-stitch dl.slidedeck dd.slide ul.slidesVertical li {
+.skin-stitch dl.slidedeck dd.slide ul.slidesVertical,
+.skin-stitch dl.slidedeck dd.slide dl.slidesVertical { text-indent: 0; }
+.skin-stitch dl.slidedeck dd.slide ul.slidesVertical li,
+.skin-stitch dl.slidedeck dd.slide dl.slidesVertical dd {
     overflow: hidden;
     padding: 10px !important;
     margin: 0 !important;
@@ -137,7 +139,6 @@ Tags: fixed, multi-color
     outline: none;
 	text-decoration: none;
     border: 1px solid #ccc;
-    filter: Alpha(opacity=50);
     opacity: 0.5;
     -moz-opacity: 0.5;
     -webkit-opacity: 0.5;
@@ -151,5 +152,4 @@ Tags: fixed, multi-color
     opacity: 0.75;
     -moz-opacity: 0.75;
     -webkit-opacity: 0.75;
-    filter: Alpha(opacity=75); 
 }

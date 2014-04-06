@@ -16,11 +16,11 @@ Tags: book themed, literature, static height
     -webkit-box-shadow: 0 0 1em #999;
     box-shadow: 0 0 1em #999;
 }			
-.skin-literally dl.slidedeck dd {
+.skin-literally dl.slidedeck > dd {
 	padding: 10px 30px;
 	background: url('slide.png') center top repeat-y;
 }
-.skin-literally dl.slidedeck dt {
+.skin-literally dl.slidedeck > dt {
 	cursor: pointer;
 	height: 72px;
 	line-height: 70px;
@@ -33,16 +33,16 @@ Tags: book themed, literature, static height
 	color: #999 !important;
     padding-right: 80px;
 }
-.skin-literally dl.slidedeck dt:hover { color: #000 !important; }
-.skin-literally dl.slidedeck dt.active, .skin-literally dl.slidedeck dt.active:hover {
+.skin-literally dl.slidedeck > dt:hover { color: #000 !important; }
+.skin-literally dl.slidedeck > dt.active, .skin-literally dl.slidedeck > dt.active:hover {
     cursor: default;
 	color: #000 !important;
     background-color: #ebeae2 !important;
 	background-position: left bottom;
     border-bottom: none !important;    
 }
-.skin-literally dl.slidedeck dt.active.spine_1, .skin-literally dl.slidedeck dt.spine_1.active { height: 70px !important; }
-.skin-literally dl.slidedeck dt .index {
+.skin-literally dl.slidedeck > dt.active.spine_1, .skin-literally dl.slidedeck > dt.spine_1.active { height: 70px !important; }
+.skin-literally dl.slidedeck > dt .index {
     background-image: url('index_sprite.png');
     position: absolute;
     right: -18px !important; /*overwrite for calculate inline style*/
@@ -54,8 +54,8 @@ Tags: book themed, literature, static height
     padding-top: 80px !important; /*overwrite for calculate inline style*/
     overflow: hidden !important; /*overwrite for calculate inline style*/
 }
-.skin-literally dl.slidedeck dt:hover .index { color: #000000 !important; }
-.skin-literally dl.slidedeck dt.active .index { color: #000000 !important; }
+.skin-literally dl.slidedeck > dt:hover .index { color: #000000 !important; }
+.skin-literally dl.slidedeck > dt.active .index { color: #000000 !important; }
 /*
  * Roman Numeral Index - sprite position
  * Edit index_sprite.png to add more numerals. current max - 10
@@ -87,8 +87,10 @@ Tags: book themed, literature, static height
 	width: 12px;
 	height: 25px;
 }
-.skin-literally dl.slidedeck dd.slide ul.slidesVertical { text-indent: 0; }
-.skin-literally dl.slidedeck dd.slide ul.slidesVertical li {
+.skin-literally dl.slidedeck dd.slide ul.slidesVertical,
+.skin-literally dl.slidedeck dd.slide dl.slidesVertical { text-indent: 0; }
+.skin-literally dl.slidedeck dd.slide ul.slidesVertical li,
+.skin-literally dl.slidedeck dd.slide dl.slidesVertical dd {
     overflow: hidden;
     padding: 10px !important;
     margin: 0 !important;
@@ -144,7 +146,6 @@ Tags: book themed, literature, static height
     outline: none;
 	text-decoration: none;
     border: 1px solid #ccc;
-    filter: Alpha(opacity=50);
     opacity: 0.5;
     -moz-opacity: 0.5;
     -webkit-opacity: 0.5;
@@ -158,5 +159,4 @@ Tags: book themed, literature, static height
     opacity: 0.75;
     -moz-opacity: 0.75;
     -webkit-opacity: 0.75;
-    filter: Alpha(opacity=75); 
 }

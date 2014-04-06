@@ -2,7 +2,7 @@
 /**
  * Edit/Create SlideDeck form
  * 
- * SlideDeck for WordPress 1.4.5 - 2011-11-18
+ * SlideDeck for WordPress 1.4.8 - 2011-12-14
  * Copyright (c) 2011 digital-telepathy (http://www.dtelepathy.com)
  * 
  * This program is free software; you can redistribute it and/or modify
@@ -23,7 +23,7 @@
  * @subpackage SlideDeck for WordPress
  * 
  * @author digital-telepathy
- * @version 1.4.5
+ * @version 1.4.8
  * 
  * @uses slidedeck_action()
  * @uses slidedeck_url()
@@ -33,6 +33,9 @@
  */
 ?>
 <div class="wrap" id="slidedeck_form">
+    
+    <?php include('_notification_bar.php'); ?>
+    
 	<div id="icon-edit" class="icon32"></div><h2><?php echo "create" == $form_action ? "Add New SlideDeck" : "Edit SlideDeck"; ?></h2>
     
     <?php echo slidedeck_show_message(); ?>
@@ -138,9 +141,9 @@
 				<?php endif; ?>
                 
                 <div class="editPageUpgradeCallout">
-                    <h4>SlideDeck PRO</h4>
+                    <h4>SlideDeck 2</h4>
                     <div class="inner">
-                        <p>Remove branding & Unlock features like Vertical Slides, Background Images &amp; more!</p>
+                        <p class="align-center">We've gone next level on the content slider. <strong><em>It's all new</em></strong> from the ground up.</p>
                         <a href="<?php echo slidedeck_action( '/upgrade' ); ?>&variation=SlideDeck+Edit+CTA" target="_blank" class="upgrade">Upgrade</a>
                     </div>
                 </div>

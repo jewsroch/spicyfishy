@@ -2,7 +2,7 @@
 /**
  * Preview SlideDeck tempalte
  * 
- * SlideDeck for WordPress 1.4.5 - 2011-11-18
+ * SlideDeck for WordPress 1.4.8 - 2011-12-14
  * Copyright (c) 2011 digital-telepathy (http://www.dtelepathy.com)
  * 
  * This program is free software; you can redistribute it and/or modify
@@ -23,7 +23,7 @@
  * @subpackage SlideDeck for WordPress
  * 
  * @author digital-telepathy
- * @version 1.4.5
+ * @version 1.4.8
  * 
  * @uses slidedeck()
  * @uses admin_url()
@@ -57,37 +57,31 @@
 </div>
 <script type="text/javascript">
 (function($){
-    <?php if( $first_preview === true ): ?>
+    if($('#slidedeck_preview_mask').length){
         setTimeout(function(){
-            $('#btn_slidedeck_preview_submit').click();
-        }, 100);
-    <?php else: ?>
-        if($('#slidedeck_preview_mask').length){
-            setTimeout(function(){
-                updateTBSize();
-                
-                var slidedeckPreviewWindow = $('#slidedeck_preview_window');
-                var classes = slidedeckPreviewWindow.find('.slidedeck_frame')[0].className;
-                var classes = classes.split(' ');
-                var namespace = "";
-                for(var i = 0; i < classes.length; i++){
-                    if(classes[i].match('skin-([a-zA-Z0-9\-_]+)')){
-                        namespace = classes[i].replace('skin-', "");
-                    }
+            updateTBSize();
+            
+            var slidedeckPreviewWindow = $('#slidedeck_preview_window');
+            var classes = slidedeckPreviewWindow.find('.slidedeck_frame')[0].className;
+            var classes = classes.split(' ');
+            var namespace = "";
+            for(var i = 0; i < classes.length; i++){
+                if(classes[i].match('skin-([a-zA-Z0-9\-_]+)')){
+                    namespace = classes[i].replace('skin-', "");
                 }
-                if(typeof(SlideDeckSkin) != 'undefined'){
-                    if(typeof(SlideDeckSkin[namespace]) == 'function'){
-                        slidedeckPreviewWindow.find('.slidedeck').each(function(){
-                            if(!$.data(this, 'skin-' + namespace)){
-                                $.data(this, 'skin-' + namespace, new SlideDeckSkin[namespace](this));
-                            }
-                        });
-                    }
+            }
+            if(typeof(SlideDeckSkin) != 'undefined'){
+                if(typeof(SlideDeckSkin[namespace]) == 'function'){
+                    slidedeckPreviewWindow.find('.slidedeck').each(function(){
+                        if(!$.data(this, 'skin-' + namespace)){
+                            $.data(this, 'skin-' + namespace, new SlideDeckSkin[namespace](this));
+                        }
+                    });
                 }
-    
-                $('#slidedeck_preview_mask').fadeOut();
-            }, 500);
-        }
-    <?php endif; ?>
+            }
+
+            $('#slidedeck_preview_mask').fadeOut();
+        }, 500);
+    }
 })(jQuery);
 </script>

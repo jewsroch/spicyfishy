@@ -16,13 +16,13 @@ Tags: flexible, white, black, multi-color
     margin: 0 0 25px;
 }
 
-.skin-invasion dl.slidedeck dd {
+.skin-invasion dl.slidedeck > dd {
 	padding: 20px;
 	background: url('slides.png') 0 0 repeat-x #fff;
 	color: #333;
     font-size: 12px;
 }
-.skin-invasion dl.slidedeck dt {
+.skin-invasion dl.slidedeck > dt {
 	cursor: pointer;
 	height: 56px;
 	line-height: 48px;
@@ -47,8 +47,10 @@ Tags: flexible, white, black, multi-color
 .skin-invasion dl.slidedeck dt.active, .slmidedeck dt.active:hover { color: #000 !important; }
 .skin-invasion dl.slidedeck dt .index { display: none !important; }
 .skin-invasion dl.slidedeck .activeCorner { display:none; }
-.skin-invasion dl.slidedeck dd.slide ul.slidesVertical { text-indent: 0; }
-.skin-invasion dl.slidedeck dd.slide ul.slidesVertical li {
+.skin-invasion dl.slidedeck dd.slide ul.slidesVertical,
+.skin-invasion dl.slidedeck dd.slide dl.slidesVertical { text-indent: 0; }
+.skin-invasion dl.slidedeck dd.slide ul.slidesVertical li,
+.skin-invasion dl.slidedeck dd.slide dl.slidesVertical dd {
     overflow: hidden;
     padding: 10px !important;
     margin: 0 !important;
@@ -104,7 +106,6 @@ Tags: flexible, white, black, multi-color
     outline: none;
 	text-decoration: none;
     border: 1px solid #ccc;
-    filter: Alpha(opacity=50);
     opacity: 0.5;
     -moz-opacity: 0.5;
     -webkit-opacity: 0.5;
@@ -118,5 +119,4 @@ Tags: flexible, white, black, multi-color
     opacity: 0.75;
     -moz-opacity: 0.75;
     -webkit-opacity: 0.75;
-    filter: Alpha(opacity=75); 
 }

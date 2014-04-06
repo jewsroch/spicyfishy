@@ -1,17 +1,20 @@
 === Plugin Name ===
-Contributors: cdevroe
-Donate link: 
+Contributors: phpfunk
+Donate link: https://www.viddler.com/plans
 Tags: video, viddler, flash, video comments, embed video
 Requires at least: 2.5
-Tested up to: 3.1.1
-Stable tag: 1.4.1
+Tested up to: 3.8.1
+Stable tag: 2.0.0
 
-Quick access to Viddler videos and video comments.
+Publish videos from Viddler and enable video comments on your site.
 
 == Description ==
 
-1. Enriches your site's commenting experience by enabling video comments by either recording from a web cam, or choosing a video already uploaded to Viddler.com.
-2. Makes it quick and easy to post a video to your site from within the Wordpress admin.
+Viddler is the best video platform for businesses to publish video to their Wordpress powered site. With The Viddler Wordpress plugin it makes it as simple as possible to do just that.
+
+Logging into Viddler.com in order to copy and paste an embed code to publish video on your site can be a cumbersome process for those that do that over and over every day. The Viddler Wordpress plugin allows you to access your Viddler videos from within your Wordpress admin and quickly insert a video into a post or page.
+
+In addition to quick access to your Viddler videos this plugin also enables video commenting on your site. Now, rather than only accepting text based comments from your audience you can allow them to use their webcam or upload a video comment directly from your comment form.
 
 == Installation ==
 
@@ -63,9 +66,76 @@ Log into your Wordpress admin and click on Settings > Viddler.
 
 == Support ==
 
-If you require any help installing this plugin, you may contact	[Colin Devroe](http://cdevroe.com/) at cdevroe@viddler.com
+If you require any help installing this plugin, you may contact	[The Viddler Helpdesk](http://www.viddler.com/help)
 	
 == Changelog ==
+
+= 2.0.0 =
+* Released February 12, 2014
+* Remove ability for people to leave video comments with their own viddler.com account. All videos now go into the viddler account of the blog owner
+* New upload videos to Viddler feature
+* Respect default viewing permissions on Viddler account rather than setting recorded videos to public
+* Moved username/password configuration to database
+* Remove use of shorttags which are not supported in some PHP environments
+
+= 1.5.4 =
+* Released January 31, 2013
+* Updated Asset URL Paths.
+
+= 1.5.3 =
+* Released December 11, 2012
+* Fixed: Invalid paths to images
+* Updated readme.
+
+= 1.5.2 =
+* Released December 10, 2012
+* Fixed: Syntax error
+* Updated readme.
+
+= 1.5.0 =
+* Released June 14, 2012
+* Fixed: Issue with $player variable instead of $p
+* Updated readme.
+
+= 1.4.9 =
+* Released June 14, 2012
+* Fixed: Issue with iframe embed code
+* Updated readme.
+
+= 1.4.8 =
+* Released June 6, 2012
+* Added: Support for all flashvars in shortcode
+* Added: viddler-shortcode.php file
+* Updated readme.
+
+= 1.4.7 =
+* Released June 6, 2012
+* Fixed: Invalid version number
+* Updated readme.
+
+= 1.4.6 =
+* Released June 6, 2012
+* Fixed: Invalid includes on some installations
+* Updated readme.
+
+= 1.4.5 =
+* Released June 5, 2012
+* Added: Ability to authenticate as you
+* Added ability to get videos other than public if authenticated as you
+* Ability to embed invite only videos
+* Removal of featured videos search
+* Additional security enhancements
+* Embed code is now the iframe embed instead of HTML5 Fallback
+* Updated readme.
+
+= 1.4.2 =
+* Released Feb 1, 2012
+* Fixed: Dates showing up at January 16, 1970 now work correctly.
+* Fixed: Updated the way jQuery was loaded to reduce conflicts with other plugins.
+* New: The plugin can now support Wordpress.com shortcode syntax in addition to the legacy and original syntax.
+* Update: Latest PHPViddler https://github.com/viddler/phpviddler/
+* New: Now uses Wordpress.com's shortcode rather than Viddler's own. All are unified. 
+* Updated readme.
 
 = 1.4.1 =
 * Released on May 4, 2011
@@ -307,7 +377,7 @@ Viddler API:
 http://developers.viddler.com/
 
 phpviddler Viddler API wrapper:
-http://developers.viddler.com/projects/wrappers/phpviddler/
+https://github.com/viddler/phpviddler
 
 jQuery JavaScript library: http://jquery.com/
 

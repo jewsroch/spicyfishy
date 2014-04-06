@@ -1,14 +1,21 @@
-=== Content Slider by SlideDeck ===
+=== SlideDeck 1 Lite Content Slider ===
 Contributors: dtelepathy, kynatro, jamie3d, dtrenkner, oriontimbers
 Donate link: http://www.slidedeck.com/download
 Tags: Slider, dynamic, slide show, slideshow, widget, Search Engine Optimized, seo, jquery, plugin, pictures, slide, skinnable, skin, posts, video, photo, media, image gallery, iPad, iphone, vertical slides, touch support, theme
 Requires at least: 2.8.6
-Tested up to: 3.3beta3
+Tested up to: 3.5
 Stable tag: trunk
 
 Create SlideDecks on your WordPress blogging platform. Manage SlideDeck content and insert them into templates and posts.
 
 == Description ==
+
+= Deprecation Notice =
+**SlideDeck 1 Lite for WordPress is deprecated.** As of 3/13/2013 we will not longer be updating this plugin, but we suggest that you consider trying [SlideDeck 2 Lite](http://wordpress.org/extend/plugins/slidedeck2/) for WordPress instead.
+[SlideDeck 2 Lite](http://wordpress.org/extend/plugins/slidedeck2/) has replaced SlideDeck 1 and is now our primary SlideDeck focus.
+
+Thanks for your support! - The SlideDeck Team
+
 
 The SlideDeck WordPress slider plugin allows you to easily create a content slider widget or slideshow on your WordPress blog without having to write any code. Just create a new slider with the SlideDeck control panel tool and insert the widget into your post via the WYSIWYG editor with the TinyMCE plugin SlideDeck picker. 
 
@@ -148,6 +155,21 @@ We provide a few skins with SlideDeck, all of which you can edit. You will find 
 7. A preview of the Smart SlideDeck. Three different navigation layouts available - Post Titles, Post Dates, and Dots.
 
 == Changelog ==
+= 1.4.8 =
+* Compatibility fixes for WordPress 3.5.x
+
+= 1.4.7 =
+* Updated skin asset pathing to work better in some non-standard server configurations
+* Updated skin processing of goTo() indexes to pass an integer typed value to work properly with newer versions of jQuery
+* Fixed default option retrieval to be more compatible with older installations of SlideDeck 
+
+= 1.4.6 =
+* Updated SlideDeck JavaScript core to 1.3.3
+* Fixed skins that were not working with improved Preview modal
+* Improved Preview modal to not require a second reload upon initial viewing
+* Improved IE CSS override implementation so IE9 can be accommodated for - just define the styles in skin.ie.css
+* Improved multibyte support for Smart SlideDeck navigation tab titles
+
 = 1.4.5 =
 * Added support for WordPress 3.3
 * Re-factored much of the TinyMCE implementation to accommodate better for cross-browser and WordPress version support
@@ -332,6 +354,9 @@ We provide a few skins with SlideDeck, all of which you can edit. You will find 
 * Initial beta release with basic SlideDeck creation, management, and placement.
 
 == Upgrade Notice ==
+
+= 1.4.8 =
+Final Update. Bug fixes for compatibility with WordPress 3.5.
 
 = 1.4.2 =
 Update to SlideDeck JavaScript Core 1.3.0 to accommodate for new skin bundle.

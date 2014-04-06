@@ -12,7 +12,57 @@ Tags: flexible, white, black, multi-color
 
 .skin-default dl.slidedeck { margin: 0 0 25px; }
 
-.skin-default dl.slidedeck dd {
+.skin-default dl.slidedeck > dt {
+	position: relative;
+	cursor: pointer;
+    height: 30px;
+	line-height: 30px;
+	font-size: 13px;
+	font-weight: normal;
+	font-family: "Lucida Grande", Arial, Helvetica, sans-serif;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	background: url('spines.png') bottom right #f8f8f8;
+	color: #333;
+	border-bottom: 1px solid #fff;
+	margin:0;
+	padding:0;
+}
+
+.skin-default dl.slidedeck > dt:hover { color: #000; }
+
+.skin-default dl.slidedeck > dt.active, .skin-default dl.slidedeck > dt.active:hover {
+	cursor: default;
+	color: #fff !important;
+	background-color: #333;
+	background-position: top right;
+	border-left-color: #000;
+}
+
+.skin-default dl.slidedeck > dt .index {
+	font-size: 14px;
+	font-weight: bold;
+	font-family: "Lucida Grande", Arial, Helvetica, sans-serif;
+	color: #666;
+	background: url('indexes.png') 0 -32px no-repeat;
+	margin-left: -5px;
+}
+
+.skin-default dl.slidedeck > dt:hover .index { color: #000; }
+
+.skin-default dl.slidedeck > dt.active .index {
+	color: #fff !important;
+	background-position: 0 -1px;
+}
+
+.skin-default dl.slidedeck .activeCorner {
+	margin-left: -2px;
+	margin-top: -11px;
+	background-image: url('corner.png');
+	width: 7px;
+	height: 15px;
+}
+.skin-default dl.slidedeck > dd {
     padding: 10px;
 	border: 1px solid #dcdcdc;
 	border-right: none;
@@ -26,55 +76,10 @@ Tags: flexible, white, black, multi-color
 	-webkit-border-bottom-right-radius: 4px;
 }
 
-.skin-default dl.slidedeck dt {
-    height: 30px;
-	line-height: 30px;
-	cursor: pointer;
-	font-size: 13px;
-	font-weight: normal;
-	font-family: "Lucida Grande", Arial, Helvetica, sans-serif;
-	text-transform: uppercase;
-	letter-spacing: 1px;
-	background: url('spines.png') bottom right #f8f8f8;
-	color: #333;
-	border-bottom: 1px solid #fff;
-}
-
-.skin-default dl.slidedeck dt:hover { color: #000; }
-
-.skin-default dl.slidedeck dt.active, .skin-default dl.slidedeck dt.active:hover {
-	cursor: default;
-	color: #fff !important;
-	background-color: #333;
-	background-position: top right;
-	border-left-color: #000;
-}
-
-.skin-default dl.slidedeck dt .index {
-	font-size: 14px;
-	font-weight: bold;
-	font-family: "Lucida Grande", Arial, Helvetica, sans-serif;
-	color: #666;
-	background: url('indexes.png') 0 -32px no-repeat;
-	margin-left: -5px;
-}
-
-.skin-default dl.slidedeck dt:hover .index { color: #000; }
-
-.skin-default dl.slidedeck dt.active .index {
-	color: #fff !important;
-	background-position: 0 -1px;
-}
-
-.skin-default dl.slidedeck .activeCorner {
-	margin-left: -2px;
-	margin-top: -11px;
-	background-image: url('corner.png');
-	width: 7px;
-	height: 15px;
-}
-.skin-default dl.slidedeck dd.slide ul.slidesVertical { text-indent: 0; }
-.skin-default dl.slidedeck dd.slide ul.slidesVertical li {
+.skin-default dl.slidedeck dd.slide ul.slidesVertical,
+.skin-default dl.slidedeck dd.slide dl.slidesVertical { text-indent: 0; }
+.skin-default dl.slidedeck dd.slide ul.slidesVertical li,
+.skin-default dl.slidedeck dd.slide dl.slidesVertical dd {
     overflow: hidden;
     padding: 10px !important;
     margin: 0 !important;
@@ -130,7 +135,6 @@ Tags: flexible, white, black, multi-color
     outline: none;
 	text-decoration: none;
     border: 1px solid #ccc;
-    filter: Alpha(opacity=50);
     opacity: 0.5;
     -moz-opacity: 0.5;
     -webkit-opacity: 0.5;
@@ -144,5 +148,4 @@ Tags: flexible, white, black, multi-color
     opacity: 0.75;
     -moz-opacity: 0.75;
     -webkit-opacity: 0.75;
-    filter: Alpha(opacity=75); 
 }

@@ -7,6 +7,10 @@ spicyfishy/wp-content/upgrade/
 spicyfishy/wp-content/backup-db/
 spicyfishy/wp-content/advanced-cache.php
 spicyfishy/wp-content/wp-cache-config.php
+spicyfishy/photos/
+spicyfishy/wp-content/db.php
+spicyfishy/wp-content/object-cache.php
+spicyfishy/wp-content/w3tc-config/
 sitemap.xml
 *.log
 spicyfishy/wp-content/cache/
